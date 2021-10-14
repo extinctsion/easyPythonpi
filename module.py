@@ -20,11 +20,9 @@ def div(x, y):   # For division of 2 numbers
 def mod(x, y):   # For finding the modulus of 2 numbers
     return  x%y
 
-
 def factorial(n): # To find the factorial of 2 numbers
     # single line to find factorial
     return 1 if (n == 1 or n == 0) else n * factorial(n - 1)
-
 
 def Area_circle(r):  # To find the area of a circle using the radius r
     PI = 3.142
@@ -46,7 +44,6 @@ def fibonacci(n):  #To find the nth fibonacci series
     else:
         return fibonacci(n-1)+fibonacci(n-2)
 
-
 def sort(list):    # To bubble sort and array or list
     for i in range(len(list) - 1, 0, -1):
         for j in range(i):
@@ -54,7 +51,5 @@ def sort(list):    # To bubble sort and array or list
                 temp = list[j]
                 list[j] = list[j + 1]
                 list[j + 1] = temp
-
-
-
-
+                
+                
