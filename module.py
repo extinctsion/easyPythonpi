@@ -5,31 +5,34 @@
             'from module import *' and u r good to go...
                             ~Happy programming"""
 
-def add(x, y): # for addition of 2 numbers
+def add(x, y): # For addition of 2 numbers
     return  x+y
 
-def sub(x, y):  # for substraction of 2 numbers
+def sub(x, y):  # For substraction of 2 numbers
     return  x-y
 
-def multi(x, y): # for multiplication of 2 numbers
+def multi(x, y): # For multiplication of 2 numbers
     return  x*y
 
-def div(x, y):   # for division of 2 numbers
+def div(x, y):   # For division of 2 numbers
     return  x/y
 
-def mod(x, y):   #for finding the modulus of 2 numbers
+def mod(x, y):   # For finding the modulus of 2 numbers
     return  x%y
 
 
-def factorial(n): # to find the factorial of 2 numbers
+def factorial(n): # To find the factorial of 2 numbers
     # single line to find factorial
-    return 1 if (n == 1 or n == 0) else n * factorial(n - 1);
+    return 1 if (n == 1 or n == 0) else n * factorial(n - 1)
 
 
-def Area_circle(r):  # TO find the area of a circle using a radius r
+def Area_circle(r):  # To find the area of a circle using the radius r
     PI = 3.142
-    return PI * (r*r);
+    return PI * (r * r)
 
+def Perimeter_circle(r): # To find the perimeter of a circle using the radius r
+    PI = 3.142
+    return 2 * PI * r 
 
 def fibonacci(n):  #To find the nth fibonacci series
     if n<0:
