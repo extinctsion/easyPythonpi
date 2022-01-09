@@ -66,6 +66,7 @@ def printprime(start,end):
                               
 
 def hex2bin(x):
+          x=str(x)
           r=''
           for i in x:
               if i=='A':
@@ -83,7 +84,7 @@ def hex2bin(x):
               else:
                    h=bin(int(i))
                    n=h[2:]
-                   for i in range(4):
+                   for j in range(4):
                     if len(n)<4:
                          n='0'+n
                          
@@ -91,8 +92,20 @@ def hex2bin(x):
           return r
           
 
-print(hex2bin('4F'))           
-                 
+
+def oct2bin(x):       
+        r='' 
+        x=str(x)
+        for i in x:        
+          h=bin(int(i))
+          n=h[2:]
+          for i in range(3):
+                 if len(n)<3:
+                      n='0'+n
+          r=r+n            
+        return r
+                         
+
           
 
 
