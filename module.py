@@ -62,7 +62,38 @@ def printprime(start,end):
                                   if i%k==0:
                                          j=1
                         if j==0:
-                              print(i)
+                              return i
+                              
+
+def hex2bin(x):
+          r=''
+          for i in x:
+              if i=='A':
+                    r=r+'1010'
+              elif i=='B':
+                   r=r+'1011'
+              elif i=='C':
+                   r=r+'1100'
+              elif i=='D':
+                   r=r+'1101'
+              elif i=='E':
+                   r=r+'1110'
+              elif i=='F':
+                   r=r+'1111'
+              else:
+                   h=bin(int(i))
+                   n=h[2:]
+                   for i in range(4):
+                    if len(n)<4:
+                         n='0'+n
+                         
+                   r=r+n
+          return r
+          
+
+print(hex2bin('4F'))           
+                 
+          
 
 
                       
