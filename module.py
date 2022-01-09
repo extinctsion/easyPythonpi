@@ -104,9 +104,20 @@ def oct2bin(x):
                       n='0'+n
           r=r+n            
         return r
-                         
 
-          
+
+def bin2dec(x): 
+           x=list(str(x))
+           l=len(x)
+           a=0
+           r=0
+           for i in range(l-1,-1,-1):
+                    
+                    r=r+(int(x[i])*(2**a))
+              
+                    a=a+1
+           return r                  
+             
 
 
                       
