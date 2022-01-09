@@ -52,4 +52,19 @@ def sort(list):    # To bubble sort and array or list
                 list[j] = list[j + 1]
                 list[j + 1] = temp
                 
-                
+
+def printprime(start,end):
+            if start<=0:
+                    start=1
+            for i in range(start,end+1):
+                        j=0
+                        for k in range(2,i):
+                                  if i%k==0:
+                                         j=1
+                        if j==0:
+                              print(i)
+
+
+printprime(1,9)                                               
+                     
+                                  
