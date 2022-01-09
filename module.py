@@ -65,6 +65,6 @@ def printprime(start,end):
                               print(i)
 
 
-printprime(1,9)                                               
+                      
                      
                                   
