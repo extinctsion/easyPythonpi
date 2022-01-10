@@ -52,4 +52,74 @@ def sort(list):    # To bubble sort and array or list
                 list[j] = list[j + 1]
                 list[j + 1] = temp
                 
-                
+
+def printprime(start,end):
+            if start<=0:
+                    start=1
+            for i in range(start,end+1):
+                        j=0
+                        for k in range(2,i):
+                                  if i%k==0:
+                                         j=1
+                        if j==0:
+                              return i
+                              
+
+def hex2bin(x):
+          x=str(x)
+          r=''
+          for i in x:
+              if i=='A':
+                    r=r+'1010'
+              elif i=='B':
+                   r=r+'1011'
+              elif i=='C':
+                   r=r+'1100'
+              elif i=='D':
+                   r=r+'1101'
+              elif i=='E':
+                   r=r+'1110'
+              elif i=='F':
+                   r=r+'1111'
+              else:
+                   h=bin(int(i))
+                   n=h[2:]
+                   for j in range(4):
+                    if len(n)<4:
+                         n='0'+n
+                         
+                   r=r+n
+          return r
+          
+
+
+def oct2bin(x):       
+        r='' 
+        x=str(x)
+        for i in x:        
+          h=bin(int(i))
+          n=h[2:]
+          for i in range(3):
+                 if len(n)<3:
+                      n='0'+n
+          r=r+n            
+        return r
+
+
+def bin2dec(x): 
+           x=list(str(x))
+           l=len(x)
+           a=0
+           r=0
+           for i in range(l-1,-1,-1):
+                    
+                    r=r+(int(x[i])*(2**a))
+              
+                    a=a+1
+           return r                  
+             
+
+
+                      
+                     
+                                  
