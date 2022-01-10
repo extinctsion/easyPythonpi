@@ -53,7 +53,8 @@ def sort(list):    # To bubble sort and array or list
                 list[j + 1] = temp
                 
 
-def printprime(start,end):
+# print all the prime numbers between the given range
+def for_prime_in_range(start,end):   
             if start<=0:
                     start=1
             for i in range(start,end+1):
@@ -62,7 +63,8 @@ def printprime(start,end):
                                   if i%k==0:
                                          j=1
                         if j==0:
-                              return i
+                                  print(i)
+            
                               
 
 def hex2bin(x):
@@ -159,8 +161,8 @@ def ispalindrome(x):        # To check if the given parameter is palindrome or n
                    return False
 
                 
-                                    
-             
+                                                 
+
 
                       
                      
