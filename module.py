@@ -119,6 +119,48 @@ def bin2dec(x):
            return r                  
              
 
+def createarray(length,dtype='int'):   # To create an array of entered length and entered data type(interger data type is a default data type)
+            import numpy as np 
+            a=[]  #empty list
+            for i in range(length):
+               # if entered dtype is an interger
+                    if dtype=='int':
+                               e=int(input(f"Enter {i+1} element : "))
+                               a.append(e)
+               # if entered dtype is a string
+                    elif dtype=='str' or dtype=='string':
+                                        e=str(input("Enter {i+1} element : "))
+                                        a.append(e)
+               # if entered dtype is a float                         
+                    elif dtype=='float':
+                                        e=float(input("Enter {i+1} element : "))
+                                        a.append(e)
+                                        
+                                            
+            b=np.array(a)    
+            return b
+
+def arrayrev(array):        # To reverese the array elements
+                 import numpy as np
+                 r=[]
+                 for i in range(len(array)-1,-1,-1):
+                             r.append(array[i])
+                 a=np.array(r)
+                 return a
+
+def ispalindrome(x):        # To check if the given parameter is palindrome or not
+           x=str(x)  #explicitly convert into string data type so as to iterate through each character
+           r=''
+           for i in range(len(x)-1,-1,-1):
+                      r=r+x[i]
+           if x==r:    # if the parameter get matched with its reverse then returns true othewise false
+                   return True
+           else:
+                   return False
+
+                
+                                    
+             
 
                       
                      
