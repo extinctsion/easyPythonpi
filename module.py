@@ -159,6 +159,65 @@ def ispalindrome(x):        # To check if the given parameter is palindrome or n
                    return True
            else:
                    return False
+                   
+                   
+
+def even_or_odd(data):
+      try : 
+        if data%2==0:
+                  return 'even'
+        else:
+                  return 'odd'
+          
+      except:
+           print("\nError occured, parameter passed should be purely numeric") 
+
+
+#Linked list                   
+                  
+def create_node(data):
+         class node:
+           def __init__(self,data):
+                   self.data=data
+                   self.next=None
+           
+         a=node(data)
+         return a
+# to link a node with another node
+
+def node_link(a,b):
+           a.next=b
+           b.next=None
+         #a=node(data1)
+          
+         
+# to count number of nodes
+                                           
+def count_node(head):
+         if head is None:
+                  return 0
+         else:
+                  temp=head
+                  count=0
+                  while(temp!=None):
+                         count=count+1
+                         temp=temp.next
+                  return count   
+
+# to diplay a linked list whose header node is passed as an argument                  
+
+def display_nodes(head):
+           t=head
+           while t is not None:
+                        print(t.data,"->",end="")
+                        t=t.next
+           print("NULL")
+                             
+           
+                   
+
+                       
+               
 
                 
                                                  
