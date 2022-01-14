@@ -52,9 +52,8 @@ def sort(list):    # To bubble sort and array or list
                 list[j] = list[j + 1]
                 list[j + 1] = temp
                 
-
-# print all the prime numbers between the given range
-def for_prime_in_range(start,end):   
+#method to print the 1st prime number between the range
+def printprime(start,end):
             if start<=0:
                     start=1
             for i in range(start,end+1):
@@ -63,10 +62,9 @@ def for_prime_in_range(start,end):
                                   if i%k==0:
                                          j=1
                         if j==0:
-                                  print(i)
-            
+                              return i
                               
-
+#A method to convert Hexadecimal input to binary numbers
 def hex2bin(x):
           x=str(x)
           r=''
@@ -94,7 +92,7 @@ def hex2bin(x):
           return r
           
 
-
+#A method to convert Octal input to binary numbers
 def oct2bin(x):       
         r='' 
         x=str(x)
@@ -107,7 +105,7 @@ def oct2bin(x):
           r=r+n            
         return r
 
-
+#A method to convert binary input to decimal numbers
 def bin2dec(x): 
            x=list(str(x))
            l=len(x)
