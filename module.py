@@ -53,8 +53,8 @@ def sort(list):    # To bubble sort and array or list
                 list[j + 1] = temp
                 
 
-# print all the prime numbers between the given range
-def for_prime_in_range(start,end):   
+#method to print the 1st prime number between the range
+def printprime(start,end):
             if start<=0:
                     start=1
             for i in range(start,end+1):
@@ -63,7 +63,7 @@ def for_prime_in_range(start,end):
                                   if i%k==0:
                                          j=1
                         if j==0:
-                                  print(i)
+                              return i
             
                               
 
