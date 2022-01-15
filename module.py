@@ -50,8 +50,7 @@ def sort(list):    # To bubble sort and array or list
             if list[j] > list[j + 1]:
                 temp = list[j]
                 list[j] = list[j + 1]
-                list[j + 1] = temp
-       
+                list[j + 1] = temp      
 #method to print the 1st prime number between the range
 def printprime(start,end):
             if start<=0:
