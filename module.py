@@ -118,7 +118,181 @@ def bin2dec(x):
                     a=a+1
            return r                  
              
+def createarray(length,dtype='int'):   # To create an array of entered length and entered data type(interger data type is a default data type)
+            import numpy as np 
+            a=[]  #empty list
+            for i in range(length):
+               # if entered dtype is an interger
+                    if dtype=='int':
+                               e=int(input(f"Enter {i+1} element : "))
+                               a.append(e)
+               # if entered dtype is a string
+                    elif dtype=='str' or dtype=='string':
+                                        e=str(input("Enter {i+1} element : "))
+                                        a.append(e)
+               # if entered dtype is a float                         
+                    elif dtype=='float':
+                                        e=float(input("Enter {i+1} element : "))
+                                        a.append(e)
+                                        
+                                            
+            b=np.array(a)    
+            return b
 
+def arrayrev(array):        # To reverese the array elements
+                 import numpy as np
+                 r=[]
+                 for i in range(len(array)-1,-1,-1):
+                             r.append(array[i])
+                 a=np.array(r)
+                 return a
+
+def ispalindrome(x):        # To check if the given parameter is palindrome or not
+           x=str(x)  #explicitly convert into string data type so as to iterate through each character
+           r=''
+           for i in range(len(x)-1,-1,-1):
+                      r=r+x[i]
+           if x==r:    # if the parameter get matched with its reverse then returns true othewise false
+                   return True
+           else:
+                   return False
+                   
+                   
+
+def even_or_odd(data):
+      try : 
+        if data%2==0:
+                  return 'even'
+        else:
+                  return 'odd'
+          
+      except:
+           print("\nError occured, parameter passed should be purely numeric") 
+
+
+#Linked list                   
+                  
+def create_node(data):
+         class node:
+           def __init__(self,data):
+                   self.data=data
+                   self.next=None
+           
+         a=node(data)
+         return a
+# to link a node with another node
+
+def node_link(a,b):
+           a.next=b
+           b.next=None
+         #a=node(data1)
+          
+         
+# to count number of nodes
+                                           
+def count_node(head):
+         if head is None:
+                  return 0
+         else:
+                  temp=head
+                  count=0
+                  while(temp!=None):
+                         count=count+1
+                         temp=temp.next
+                  return count   
+
+# to diplay a linked list whose header node is passed as an argument                  
+
+def display_nodes(head):
+           t=head
+           while t is not None:
+                        print(t.data,"->",end="")
+                        t=t.next
+           print("NULL")
+                             
+
+# Matrix problems
+
+def matrix_add(array1,array2):
+                import numpy as np
+                
+                result=np.array(array1)+np.array(array2)
+                return result
+
+
+def matrix_sub(array1,array2):
+                import numpy as np
+                
+                result=np.array(array1)-np.array(array2)
+                return result
+  
+ # Multiplication of two                   
+def matrix_mul(matrix1,matrix2):
+                import numpy as np
+                matrix1=np.array(matrix1)  # converting list into array
+                matrix2=np.array(matrix2)  
+                a=list(matrix1.shape)      # getting the shape of the array
+                b=list(matrix2.shape)
+                if len(a)==1:
+                        k=a[0]              # suppose if row is one , for eg [1,2,3] ,then shape returns (3,) instead of [1,3].. 
+                        a[1]=k    
+                        a[0]=1              # here first element becomes last element and in place of first element , 1 is appended..
+                if a[1]==b[0]:       # from matrix multiplication convention, number of columns of first matrix needs to be equal to number of rows of second matrix
+                        tt=[]
+                        for i in range(b[0]):
+                                  u=[]
+                                  for j in range(b[0]):
+                                        u.append(matrix2[j][i])
+                                  tt.append(u)
+                        t=np.array(tt)   # arrays of coloumn of second matrix
+                        pp=[]
+                       
+                        for k in range(b[0]):
+                                   ar=[]
+                                   for l in range(b[0]):
+                                        y=matrix1[k]*t[l]  # multiplication of rows and columns
+                                        ar.append(list(y)) # appending the result into a list
+                                   pp.append(ar)
+                        l=[]        
+                        for i in pp:
+                                 zz=[]
+                                 for j in i:
+                                     sum1=0
+                                     for c in j:
+                                       sum1=sum1+c  # sum all the element of each row each column
+                                     zz.append(sum1) 
+                                 l.append(zz)    # appending the sum of each row and column of result matrix into a list
+                        l=np.array(l)  # convert the list of result matrix into array
+                        return l         
+                        
+                        
+
+def matrix_shape(matrix1):
+                import numpy as np
+                matrix1=np.array(matrix1)  
+                a=list(matrix1.shape)      
+                if len(a)==1:
+                        k=a[0]             
+                        a[1]=k    
+                        a[0]=1                                                                                                            
+                return a                 #returns shape of a matrix              
+                      
+                          
+                      
+
+def matrix_transpose(matrix1):
+                import numpy as np
+                matrix1=np.array(matrix1)  # converting list into array
+                a=list(matrix1.shape)      # getting the shape of the array
+                tt=[]
+                for i in range(a[0]):
+                         u=[]
+                         for j in range(len(a)):
+                                  u.append(matrix1[j][i])
+                         tt.append(u)
+                t=np.array(tt)   # transpose of matrix a
+                return t       
+                                     
 
                       
                      
