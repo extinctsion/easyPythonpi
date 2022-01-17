@@ -4,6 +4,4 @@ def check_leap(year):
     else:
         return("This is not a leap year!!")
 
-#int main()
-res=check_leap(2004)
-print(res)
+
