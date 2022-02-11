@@ -7,7 +7,7 @@ DESCRIPTION = 'A simple library for Python beginners'
 
 # Setting up
 setup(
-    name="easyPy",
+    name="easyPythonpi",
     version=VERSION,
     author="extinctsion (Aditya Sharma)",
     author_email="<extinctsion@protonmail.com>",
@@ -18,7 +18,6 @@ setup(
     keywords=['python', 'sorting', 'beginners', 'sockets'],
     classifiers=[
         "Development Status :: 1 - Planning",
-        "Intended Audience :: Beginners",
         "Programming Language :: Python :: 3",
         "Operating System :: Unix",
         "Operating System :: MacOS :: MacOS X",
