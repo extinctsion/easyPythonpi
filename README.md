@@ -1,4 +1,4 @@
-### *easyPy*
+### *easyPythonpi*
 
 *A simple pyhton library for the beginners. The program includes simple calulations. Made for raising pull requests.*
 Only simple functions are used to make the code beginner friendly :)
@@ -14,7 +14,7 @@ git clone url_you_just_copied
 (Use this command if you are using Linux distribution)
 
 ```sh
-cd easyPy
+cd easyPythonpi
 ```
 
 5. Now type in the following command in the terminal and replace `username` with your GitHub username. (This command is necessary or it will prompt errors.)
