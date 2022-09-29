@@ -1,1 +1,1 @@
-from easyPy import *
+from easyPythonpi import *
