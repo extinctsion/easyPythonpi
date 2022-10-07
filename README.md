@@ -1,6 +1,6 @@
 ### *easyPythonpi*
 
-### <u>Add new methods to easyPythonpi.py file only</u>
+### >Add new methods to easyPythonpi.py file only
 
 *A simple pyhton library for the beginners. The program includes simple calulations. Made for raising pull requests.*
 Only simple functions are used to make the code beginner friendly :)
