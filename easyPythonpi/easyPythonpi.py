@@ -99,7 +99,11 @@ def hex2bin(x):
             r=r+n
     return r
     
-
+def bin2hex(binary):
+    """Converts a binary number to hexadecimal
+    input: binary string
+    output: hexadecimal starting with 0x"""
+    return hex(int(binary, 2))
 #A method to convert Octal input to binary numbers
 def oct2bin(x):       
     r='' 
