@@ -100,10 +100,34 @@ def hex2bin(x):
     return r
     
 def bin2hex(binary):
-    """Converts a binary number to hexadecimal
-    input: binary string
-    output: hexadecimal starting with 0x"""
-    return hex(int(binary, 2))
+    """converts a binary string into a hexadecimal string"""
+    #transform binary to decimal
+    decimal = []
+    binarys = []
+    last = 0
+    for i in range(len(binary)):
+        if (i % 4) == 0 and i != 0:
+            binarys.append(binary[last:i])
+            last = i
+    else:
+        binarys.append(binary[last:])
+
+    # the transformation itself
+    for bin_num in binarys:
+        curdecimal = 0
+        for i, number in enumerate(bin_num.decode("ascii")):
+            if number != "0":
+                curdecimal += 2**(3 - i)
+        decimal.append(curdecimal)
+
+    #convert it to hex
+    hexLetters = {0:0, 1:1, 2:2, 3:3, 4:4, 5:5, 6:6, 7:7, 8:8, 9:9, 10:"A", 11:"B", 12:"C", 13:"D", 14:"E", 15:"F"}
+    out = ""
+    for number in decimal:
+        out += str(hexLetters[number])
+
+    return out
+
 #A method to convert Octal input to binary numbers
 def oct2bin(x):       
     r='' 
