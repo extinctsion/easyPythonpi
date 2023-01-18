@@ -99,9 +99,26 @@ def hex2bin(x):
             r=r+n
     return r
     
-def bin2hex(binary):
-    """converts a binary string into a hexadecimal string"""
-    #transform binary to decimal
+def bin2hex(binary: str) -> str:
+    """converts a binary string into a hexadecimal string
+
+    Example:
+        input: "111"
+        output: "7"
+
+        input: "01001011"
+        output: "4B"
+        """
+
+    if len(binary) % 4 != 0:
+        if len(binary) < 4:
+            binary = "".join(["0" for _ in range(4 - len(binary))]) + binary
+        else:
+            for i in range(1, 4):
+                if (len(binary) + i) % 4 == 0:
+                    binary = "".join(["0" for _ in range(i)]) + binary
+
+    # transform binary to decimal
     decimal = []
     binarys = []
     last = 0
@@ -115,18 +132,29 @@ def bin2hex(binary):
     # the transformation itself
     for bin_num in binarys:
         curdecimal = 0
-        for i, number in enumerate(bin_num.decode("ascii")):
+        for i, number in enumerate(bin_num):
             if number != "0":
-                curdecimal += 2**(3 - i)
+                curdecimal += 2 ** (3 - i)
         decimal.append(curdecimal)
 
-    #convert it to hex
-    hexLetters = {0:0, 1:1, 2:2, 3:3, 4:4, 5:5, 6:6, 7:7, 8:8, 9:9, 10:"A", 11:"B", 12:"C", 13:"D", 14:"E", 15:"F"}
+    # convert it to hex
+    hexLetters = {0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: "A", 11: "B", 12: "C", 13: "D",
+                  14: "E", 15: "F"}
     out = ""
+    wasNot0 = False
     for number in decimal:
-        out += str(hexLetters[number])
+        # check if it doesn't start with a 0
+        if wasNot0:
+            out += str(hexLetters[number])
+        else:
+            if str(hexLetters[number]) != "0":
+                wasNot0 = True
+                out += str(hexLetters[number])
 
+    if out == "":
+        out = "0"
     return out
+
 
 #A method to convert Octal input to binary numbers
 def oct2bin(x):       
