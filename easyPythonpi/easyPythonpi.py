@@ -101,55 +101,52 @@ def hex2bin(x):
     
 def bin2hex(binary: str) -> str:
     """converts a binary string into a hexadecimal string
-
     Example:
         input: "111"
         output: "7"
-
-        input: "01001011"
-        output: "4B"
         """
 
+    # make the binary divisible by 4
     if len(binary) % 4 != 0:
         if len(binary) < 4:
             binary = "".join(["0" for _ in range(4 - len(binary))]) + binary
         else:
-            for i in range(1, 4):
-                if (len(binary) + i) % 4 == 0:
-                    binary = "".join(["0" for _ in range(i)]) + binary
+            for zeros_to_add in range(1, 4):
+                if (len(binary) + zeros_to_add) % 4 == 0:
+                    binary = "".join(["0" for _ in range(zeros_to_add)]) + binary
 
     # transform binary to decimal
     decimal = []
-    binarys = []
-    last = 0
+    binary_nums = []
+    last_index = 0
     for i in range(len(binary)):
         if (i % 4) == 0 and i != 0:
-            binarys.append(binary[last:i])
-            last = i
+            binary_nums.append(binary[last_index:i])
+            last_index = i
     else:
-        binarys.append(binary[last:])
+        binary_nums.append(binary[last_index:])
 
     # the transformation itself
-    for bin_num in binarys:
+    for bin_num in binary_nums:
         curdecimal = 0
-        for i, number in enumerate(bin_num):
-            if number != "0":
+        for i, num_in_binary in enumerate(bin_num):
+            if num_in_binary != "0":
                 curdecimal += 2 ** (3 - i)
         decimal.append(curdecimal)
 
     # convert it to hex
-    hexLetters = {0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: "A", 11: "B", 12: "C", 13: "D",
+    hex_letters = {0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: "A", 11: "B", 12: "C", 13: "D",
                   14: "E", 15: "F"}
     out = ""
-    wasNot0 = False
-    for number in decimal:
+    was_not0 = False
+    for decimal_number in decimal:
         # check if it doesn't start with a 0
-        if wasNot0:
-            out += str(hexLetters[number])
+        if was_not0:
+            out += str(hex_letters[decimal_number])
         else:
-            if str(hexLetters[number]) != "0":
-                wasNot0 = True
-                out += str(hexLetters[number])
+            if str(hex_letters[decimal_number]) != "0":
+                was_not0 = True
+                out += str(hex_letters[decimal_number])
 
     if out == "":
         out = "0"
