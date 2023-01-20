@@ -5,42 +5,42 @@
             'from module import *' and u r good to go...
                             ~Happy programming"""
 
-def add(x, y): # For addition of 2 numbers
+def add(x:'float', y:'float')->'float': # For addition of 2 numbers
     return  x+y
 
-def sub(x, y):  # For substraction of 2 numbers
+def sub(x:'float', y:'float')->'float':  # For substraction of 2 numbers
     return  x-y
 
-def multi(x, y): # For multiplication of 2 numbers
+def multi(x:'float', y:'float')->'float': # For multiplication of 2 numbers
     return  x*y
 
-def div(x, y):   # For division of 2 numbers
+def div(x:'float', y:'float')->'float':   # For division of 2 numbers
     return  x/y
 
-def mod(x, y):   # For finding the modulus of 2 numbers
+def mod(x:'float', y:'float')->'float':   # For finding the modulus of 2 numbers
     return  x%y
 
-def factorial(n): # To find the factorial of 2 numbers
+def factorial(n:'int')->'int': # To find the factorial of 2 numbers
     # single line to find factorial
     return 1 if (n == 1 or n == 0) else n * factorial(n - 1)
 
 # To compute the factord of the argument passed
-def factors(n):
+def factors(n:'int')->'int':
     factors = []
     for i in range(1, n+1):
         if n % i == 0:
             factors.append(i)
     return factors
 
-def Area_circle(r):  # To find the area of a circle using the radius r
+def Area_circle(r:'double')->'double':  # To find the area of a circle using the radius r
     PI = 3.142
     return PI * (r * r)
 
-def Perimeter_circle(r): # To find the perimeter of a circle using the radius r
+def Perimeter_circle(r:'float')->'float': # To find the perimeter of a circle using the radius r
     PI = 3.142
     return 2 * PI * r 
 
-def fibonacci(n):  #To find the nth fibonacci series
+def fibonacci(n:'int')->'int':  #To find the nth fibonacci series
     if n<0:
         print("Incorrect input")
     # First Fibonacci number is 0
@@ -52,7 +52,7 @@ def fibonacci(n):  #To find the nth fibonacci series
     else:
         return fibonacci(n-1)+fibonacci(n-2)
 
-def sort(list):    # To bubble sort and array or list
+def sort(list:'list'):    # To bubble sort and array or list
     for i in range(len(list) - 1, 0, -1):
         for j in range(i):
             if list[j] > list[j + 1]:
@@ -61,19 +61,22 @@ def sort(list):    # To bubble sort and array or list
                 list[j + 1] = temp
                 
 #method to print the 1st prime number between the range
-def printprime(start,end):
+def printprime(start:'int',end:'int')->'list':
     if start<=0:
-            start=1
+            start=2
+    p=[]        
     for i in range(start,end+1):
                 j=0
                 for k in range(2,i):
                             if i%k==0:
                                     j=1
+                                    break
                 if j==0:
-                        return i
-                              
+                        p.append(i)
+                        
+    return p                          
 #A method to convert Hexadecimal input to binary numbers
-def hex2bin(x):
+def hex2bin(x:'hex')->'bin':
     x=str(x)
     r=''
     for i in x:
@@ -93,7 +96,7 @@ def hex2bin(x):
             h=bin(int(i))
             n=h[2:]
             for j in range(4):
-            if len(n)<4:
+               if len(n)<4:
                     n='0'+n
                     
             r=r+n
@@ -101,7 +104,7 @@ def hex2bin(x):
     
 
 #A method to convert Octal input to binary numbers
-def oct2bin(x):       
+def oct2bin(x:'oct')->'bin':       
     r='' 
     x=str(x)
     for i in x:        
@@ -114,7 +117,7 @@ def oct2bin(x):
     return r
 
 #A method to convert binary input to decimal numbers
-def bin2dec(x): 
+def bin2dec(x:'bin')->'dec': 
     x=list(str(x))
     l=len(x)
     a=0
@@ -127,7 +130,7 @@ def bin2dec(x):
     return r                  
              
 
-def createarray(length,dtype='int'):   # To create an array of entered length and entered data type(interger data type is a default data type)
+def createarray(length:'int',dtype='int')->'array':   # To create an array of entered length and entered data type(interger data type is a default data type)
     import numpy as np 
     a=[]  #empty list
     for i in range(length):
@@ -148,7 +151,7 @@ def createarray(length,dtype='int'):   # To create an array of entered length an
     b=np.array(a)    
     return b
 
-def arrayrev(array):        # To reverese the array elements
+def arrayrev(array:'array')->'array':        # To reverese the array elements
     import numpy as np
     r=[]
     for i in range(len(array)-1,-1,-1):
@@ -156,7 +159,7 @@ def arrayrev(array):        # To reverese the array elements
     a=np.array(r)
     return a
 
-def ispalindrome(x):        # To check if the given parameter is palindrome or not
+def ispalindrome(x:'str')->'str':        # To check if the given parameter is palindrome or not
     x=str(x)  #explicitly convert into string data type so as to iterate through each character
     r=''
     for i in range(len(x)-1,-1,-1):
@@ -168,7 +171,7 @@ def ispalindrome(x):        # To check if the given parameter is palindrome or n
                    
                    
 
-def even_or_odd(data):
+def even_or_odd(data:'int'):
     try : 
         if data%2==0:
                     return 'even'
@@ -181,7 +184,7 @@ def even_or_odd(data):
 
 #Linked list                   
                   
-def create_node(data):
+def create_node(data:'int')->'Linked list':
     class node:
         def __init__(self,data):
             self.data=data
@@ -191,7 +194,7 @@ def create_node(data):
     return a
 # to link a node with another node
 
-def node_link(a,b):
+def node_link(a:'int',b:'int'):
     a.next=b
     b.next=None
     #a=node(data1)
@@ -199,7 +202,7 @@ def node_link(a,b):
          
 # to count number of nodes
                                            
-def count_node(head):
+def count_node(head:'node')->'int':
     if head is None:
         return 0
     else:
@@ -212,7 +215,7 @@ def count_node(head):
 
 # to diplay a linked list whose header node is passed as an argument                  
 
-def display_nodes(head):
+def display_nodes(head:'node')->'int':
     t=head
     while t is not None:
         print(t.data,"->",end="")
@@ -222,21 +225,21 @@ def display_nodes(head):
 
 # Matrix problems
 
-def matrix_add(array1,array2):
+def matrix_add(array1:'array',array2:'array')->'array':
     import numpy as np
     
     result=np.array(array1)+np.array(array2)
     return result
 
 
-def matrix_sub(array1,array2):
+def matrix_sub(array1:'array',array2:'array')->'array':
     import numpy as np
     
     result=np.array(array1)-np.array(array2)
     return result
 
  # Multiplication of two                   
-def matrix_mul(matrix1,matrix2):
+def matrix_mul(matrix1:'array',matrix2:'array')->'array':
     import numpy as np
     matrix1=np.array(matrix1)  # converting list into array
     matrix2=np.array(matrix2)  
@@ -268,7 +271,7 @@ def matrix_mul(matrix1,matrix2):
             for j in i:
                 sum1=0
                 for c in j:
-                sum1=sum1+c  # sum all the element of each row each column
+                  sum1=sum1+c  # sum all the element of each row each column
                 zz.append(sum1) 
             l.append(zz)    # appending the sum of each row and column of result matrix into a list
         l=np.array(l)  # convert the list of result matrix into array
@@ -276,7 +279,7 @@ def matrix_mul(matrix1,matrix2):
             
             
 
-def matrix_shape(matrix1):
+def matrix_shape(matrix1:'array')->'list':
     import numpy as np
     matrix1=np.array(matrix1)  
     a=list(matrix1.shape)      
@@ -289,7 +292,7 @@ def matrix_shape(matrix1):
                           
                       
 
-def matrix_transpose(matrix1):
+def matrix_transpose(matrix1:'array')->'array':
     import numpy as np
     matrix1=np.array(matrix1)  # converting list into array
     a=list(matrix1.shape)      # getting the shape of the array
@@ -302,7 +305,7 @@ def matrix_transpose(matrix1):
     t=np.array(tt)   # get a transpose of matrix1
     return t       
                                             
-def remove_punctuation(my_str):
+def remove_punctuation(my_str:'str')->'str':
     punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
     # remove punctuations from the string
     no_punct = ""
@@ -313,7 +316,7 @@ def remove_punctuation(my_str):
     #return no_punct
     return no_punct
 
-def count_vowels(ip_str):
+def count_vowels(ip_str:'str')->'int':
     # string of vowels
     vowels = 'aeiou'
     # make it suitable for comparisions
@@ -329,5 +332,4 @@ def count_vowels(ip_str):
             
     #return the count dictionary
     return count
-
 
