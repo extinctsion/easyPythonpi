@@ -16,7 +16,7 @@ if "-" in VERSION:
     # so change it to: "1.3.3+22.git.gdf81228"
     # See: https://peps.python.org/pep-0440/#local-version-segments
     v,i,s = VERSION.split("-")
-    VERSION = v# + "+" + i + ".git." + s
+    VERSION = v + "+" + i + ".git." + s
 
 # assert "-" not in cf_remote_version
 # assert "." in cf_remote_version
