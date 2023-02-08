@@ -1,1 +1,1 @@
-from easyPythonpi import *
+from easyPythonpi.easyPythonpi import *
