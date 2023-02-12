@@ -1,3 +1,4 @@
+import regex as re
 """  A python module that helps you to calculate some of the  most used calculations.....
     usage--
             Just download the file from git and unzip in ur system.
@@ -146,21 +147,29 @@ def bin2hex(x:'bin')->'hex':
         The binary converted to hexadecimal.
 
     Raises:
-        No errors raised.
+        No errors 
     """
 
     h = ''  # hexadecimal number converted from binary and to be returned
 
+    
+    x=str(x)
+    
+    # Determine if the string has invalid characters
+    if re.search('[^(0-1)]', x):
+        raise InvalidBinaryException 
+
     # Get the length of the string
     l=len(x)
+
+    # Begin the process of converting x to its hexadecimal number
 
     # If the length is not a multiple of 4, prepend 0's before converting
     if l % 4 != 0:
         numZerosPrepended = 4 - ( l % 4 ) # number of zeros to prepend 
         x = (numZerosPrepended * '0') + x # concatenate numZerosPrepended to x
+
     
-    # Begin the process of converting x to its hexadecimal number
-    x=str(x)
     for i in range(len(x)-1, 0, -4):
         substring = x[i-3:i+1]    # The substring converted to a hex character
 
@@ -405,3 +414,9 @@ def count_vowels(ip_str:'str')->'int':
     #return the count dictionary
     return count
 
+
+# Programmer defined exceptions go here:
+
+# define exception for invalid Binary Strings
+class InvalidBinaryException(Exception):
+    pass

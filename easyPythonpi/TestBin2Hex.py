@@ -91,7 +91,50 @@ class TestBin2Hex(unittest.TestCase):
         self.assertEqual( easyPythonpi.bin2hex('110100001111'), 'D0F')   
 
     def test_binary_0100011111_to_hex(self):
-        self.assertEqual( easyPythonpi.bin2hex('0100011111'), '11F')                                                              
+        self.assertEqual( easyPythonpi.bin2hex('0100011111'), '11F')  
+
+    def test_invalid_binary_A(self):
+        with self.assertRaises(easyPythonpi.InvalidBinaryException):
+            easyPythonpi.bin2hex('A') 
+
+    def test_invalid_binary_123(self):
+        with self.assertRaises(easyPythonpi.InvalidBinaryException):
+            easyPythonpi.bin2hex('123')  
+
+    def test_invalid_binary_0101A1000100(self):
+        with self.assertRaises(easyPythonpi.InvalidBinaryException):
+            easyPythonpi.bin2hex('0101A1000100')  
+
+    def test_invalid_binary_A101100010B(self):
+        with self.assertRaises(easyPythonpi.InvalidBinaryException):
+            easyPythonpi.bin2hex('A101100010B')  
+
+    def test_invalid_binary_nonalphanumeric(self):
+        with self.assertRaises(easyPythonpi.InvalidBinaryException):
+            easyPythonpi.bin2hex('!')    
+
+    def test_invalid_binary_nonalphanumeric_in_binary(self):
+        with self.assertRaises(easyPythonpi.InvalidBinaryException):
+            easyPythonpi.bin2hex('001~') 
+
+    def test_invalid_binary_subtraction(self):
+        with self.assertRaises(easyPythonpi.InvalidBinaryException):
+            easyPythonpi.bin2hex('0000-1000')            
+
+    def test_invalid_binary_anding(self):
+        with self.assertRaises(easyPythonpi.InvalidBinaryException):
+            easyPythonpi.bin2hex('0000&1000')   
+
+    def test_invalid_helloWorld_expression(self):
+        with self.assertRaises(easyPythonpi.InvalidBinaryException):
+            easyPythonpi.bin2hex('hello world')    
+
+    def test_invalid_regexpression(self):
+        with self.assertRaises(easyPythonpi.InvalidBinaryException):
+            easyPythonpi.bin2hex('[0-1]')                        
+    
+
+ # class TestBin2Octal(unittest.TestCase):                                                                  
 
 if __name__ == '__main__':
     unittest.main()
