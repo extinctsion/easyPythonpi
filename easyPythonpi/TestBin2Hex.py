@@ -134,7 +134,64 @@ class TestBin2Hex(unittest.TestCase):
             easyPythonpi.bin2hex('[0-1]')                        
     
 
- # class TestBin2Octal(unittest.TestCase):                                                                  
+class TestBin2Octal(unittest.TestCase): 
+    def test_single_binary_zero(self):
+        self.assertEqual( easyPythonpi.bin2oct('0'), '0')
+    def test_single_binary_one(self):
+        self.assertEqual( easyPythonpi.bin2oct('1'), '1')       
+    def test_single_binary_triple_zero(self):
+        self.assertEqual( easyPythonpi.bin2oct('000'), '0')    
+    def test_single_binary_001(self):
+        self.assertEqual( easyPythonpi.bin2oct('001'), '1') 
+    def test_single_binary_010(self):
+        self.assertEqual( easyPythonpi.bin2oct('010'), '2')   
+    def test_single_binary_011(self):
+        self.assertEqual( easyPythonpi.bin2oct('011'), '3')                 
+    def test_single_binary_100(self):
+        self.assertEqual( easyPythonpi.bin2oct('100'), '4') 
+    def test_single_binary_101(self):
+        self.assertEqual( easyPythonpi.bin2oct('101'), '5') 
+    def test_single_binary_110(self):
+        self.assertEqual( easyPythonpi.bin2oct('110'), '6') 
+    def test_single_binary_111(self):
+        self.assertEqual( easyPythonpi.bin2oct('111'), '7') 
+    def test_single_binary_000010(self):
+        self.assertEqual( easyPythonpi.bin2oct('000010'), '02') 
+    def test_single_binary_00010(self):
+        self.assertEqual( easyPythonpi.bin2oct('00010'), '02')     
+    def test_invalid_binary_A(self):
+        with self.assertRaises(easyPythonpi.InvalidBinaryException):
+            easyPythonpi.bin2oct('A') 
+    def test_invalid_binary_123(self):
+        with self.assertRaises(easyPythonpi.InvalidBinaryException):
+            easyPythonpi.bin2oct('123')  
+    def test_invalid_binary_0101A1000100(self):
+        with self.assertRaises(easyPythonpi.InvalidBinaryException):
+            easyPythonpi.bin2oct('0101A1000100')  
+    def test_invalid_binary_A101100010B(self):
+        with self.assertRaises(easyPythonpi.InvalidBinaryException):
+            easyPythonpi.bin2oct('A101100010B')  
+    def test_invalid_binary_nonalphanumeric(self):
+        with self.assertRaises(easyPythonpi.InvalidBinaryException):
+            easyPythonpi.bin2oct('!')    
+    def test_invalid_binary_nonalphanumeric_in_binary(self):
+        with self.assertRaises(easyPythonpi.InvalidBinaryException):
+            easyPythonpi.bin2oct('001~') 
+    def test_invalid_binary_subtraction(self):
+        with self.assertRaises(easyPythonpi.InvalidBinaryException):
+            easyPythonpi.bin2oct('0000-1000')            
+    def test_invalid_binary_anding(self):
+        with self.assertRaises(easyPythonpi.InvalidBinaryException):
+            easyPythonpi.bin2oct('0000&1000')   
+    def test_invalid_helloWorld_expression(self):
+        with self.assertRaises(easyPythonpi.InvalidBinaryException):
+            easyPythonpi.bin2oct('hello world')    
+    def test_invalid_regexpression(self):
+        with self.assertRaises(easyPythonpi.InvalidBinaryException):
+            easyPythonpi.bin2oct('[0-1]')  
+
+
+
 
 if __name__ == '__main__':
     unittest.main()
