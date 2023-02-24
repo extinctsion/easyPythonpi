@@ -208,7 +208,7 @@ def bin2hex(x:'bin')->'hex':
             h = 'E' + h
         elif substring == '1111':
             h = 'F' + h
-
+            
     return h 
 
 
@@ -252,7 +252,6 @@ def bin2oct(x:'bin')->'oct':
             o = '7' + o    
 
     return o
-
 
 def createarray(length:'int',dtype='int')->'array':   # To create an array of entered length and entered data type(interger data type is a default data type)
     import numpy as np 
