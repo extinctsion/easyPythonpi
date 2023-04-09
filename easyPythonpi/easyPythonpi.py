@@ -208,8 +208,50 @@ def bin2hex(x:'bin')->'hex':
             h = 'E' + h
         elif substring == '1111':
             h = 'F' + h
+            
+    return h 
 
-    return h        
+
+def bin2oct(x:'bin')->'oct':  
+    o = ''  # hexadecimal number converted from binary and to be returned
+
+    x=str(x)
+    
+    # Determine if the string has invalid characters
+    if re.search('[^(0-1)]', x):
+        raise InvalidBinaryException 
+
+    # Get the length of the string
+    l=len(x)
+
+    # Begin the process of converting x to its hexadecimal number
+
+    # If the length is not a multiple of 3, prepend 0's before converting
+    if l % 3 != 0:
+        numZerosPrepended = 3 - ( l % 3 ) # number of zeros to prepend 
+        x = (numZerosPrepended * '0') + x # concatenate numZerosPrepended to x
+
+    for i in range(len(x), 0, -3):
+        substring = x[i-3:i]
+
+        if substring == '000':
+            o = '0' + o
+        elif substring == '001':
+            o = '1' + o
+        elif substring == '010':
+            o = '2' + o
+        elif substring == '011':
+            o = '3' + o
+        elif substring == '100':
+            o = '4' + o                        
+        elif substring == '101':
+            o = '5' + o        
+        elif substring == '110':
+            o = '6' + o
+        elif substring == '111':
+            o = '7' + o    
+
+    return o
 
 def createarray(length:'int',dtype='int')->'array':   # To create an array of entered length and entered data type(interger data type is a default data type)
     import numpy as np 
