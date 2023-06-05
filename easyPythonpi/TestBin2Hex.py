@@ -133,7 +133,7 @@ class TestBin2Hex(unittest.TestCase):
         with self.assertRaises(easyPythonpi.InvalidBinaryException):
             easyPythonpi.bin2hex('[0-1]')                        
     
-
+    
 class TestBin2Octal(unittest.TestCase): 
     def test_single_binary_zero(self):
         self.assertEqual( easyPythonpi.bin2oct('0'), '0')
@@ -189,9 +189,6 @@ class TestBin2Octal(unittest.TestCase):
     def test_invalid_regexpression(self):
         with self.assertRaises(easyPythonpi.InvalidBinaryException):
             easyPythonpi.bin2oct('[0-1]')  
-
-
-
 
 if __name__ == '__main__':
     unittest.main()
