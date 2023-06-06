@@ -41,9 +41,26 @@ def Perimeter_circle(r:'float')->'float': # To find the perimeter of a circle us
     PI = 3.142
     return 2 * PI * r 
 
+
 def fibonacci(n:'int')->'int':  #To find the nth fibonacci series
-    if n<0:
-        print("Incorrect input")
+    """Finds the fibonacci of the nth sequence.
+
+    This function calculates the fibonacci sequence.  This function calculates
+    the nth fibonacci of a number by finding the sum of two numbers in the 
+    fibonacci sequence before n
+
+    Args:
+        n ('int') : The number to find the fibonacci sequence of, assumes n >=1
+                    as valid numbers to find the fibonacci of n.
+
+    Returns:
+        The fibonacci of arg n.
+
+    Raises:
+        No errors 
+    """
+    if n<=0:
+        raise InvalidNumberFibException(n)
     # First Fibonacci number is 0
     elif n==1:
         return 0
@@ -51,7 +68,15 @@ def fibonacci(n:'int')->'int':  #To find the nth fibonacci series
     elif n==2:
         return 1
     else:
-        return fibonacci(n-1)+fibonacci(n-2)
+        fib1 = 0
+        fib2 = 1
+
+        for i in range(2,n-1):
+             fibN = fib1 + fib2
+             fib1 = fib2 
+             fib2 = fibN
+
+        return fib1 +fib2
 
 def sort(list:'list'):    # To bubble sort and array or list
     for i in range(len(list) - 1, 0, -1):
@@ -462,3 +487,8 @@ def count_vowels(ip_str:'str')->'int':
 # define exception for invalid Binary Strings
 class InvalidBinaryException(Exception):
     pass
+
+class InvalidNumberFibException(Exception):
+    def __init__(self, n, message="n is not valid, must be greater than or equal to 1"):
+         self.n = n
+         self.message = message
