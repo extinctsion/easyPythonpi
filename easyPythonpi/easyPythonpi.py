@@ -521,19 +521,16 @@ class UnitTest(unittest.TestCase):
               print("test failed")
        
                      
-         '''from easyPythonpi import UnitTest
+"""from easyPythonpi import UnitTest
             a=UnitTest()
             a.test('cccc','dddd') # print test failed as inp and output doesn't match
             
             import easyPythonpi as e
             p=e.add(5,5) 
             a.test(p,10) # print ok as output of p, which act as an input for unit testing and desired output is same
-  '''          
+"""          
        
-if __name__=="__main__":
-          unittest.main()         
-
-         
+      
           
 
    
