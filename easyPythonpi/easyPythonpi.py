@@ -492,3 +492,42 @@ class InvalidNumberFibException(Exception):
     def __init__(self, n, message="n is not valid, must be greater than or equal to 1"):
          self.n = n
          self.message = message
+         
+#unit testing
+
+
+
+try:
+   import unittest
+except:
+    try: 
+       import os
+       os.system("pip install unittest")
+       import unittest
+    except:
+        try:
+            import requests
+            requests.get("www.google.com",timeout=5)
+            print("Error : pip is not installed")
+        except:
+             print("no internet connection")
+           
+class UnitTest(unittest.TestCase):  
+    def test(self,inp,desired_outp):
+       try:  
+         self.assertEqual(inp,desired_outp)
+         print("OK")
+       except:
+              print("test failed")
+       
+                     
+         
+       
+if __name__=="__main__":
+          unittest.main()         
+
+         
+          
+
+   
+   
