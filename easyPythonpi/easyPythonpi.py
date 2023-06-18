@@ -15,6 +15,9 @@ def sub(x:'float', y:'float')->'float':  # For substraction of 2 numbers
 def multi(x:'float', y:'float')->'float': # For multiplication of 2 numbers
     return  x*y
 
+def average(x:'float', y:'float')->'float': # For average of 2 numbers
+    return  (x+y)/2
+
 def div(x:'float', y:'float')->'float':   # For division of 2 numbers
     return  x/y
 
