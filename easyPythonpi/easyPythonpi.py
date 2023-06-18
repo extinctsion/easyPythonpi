@@ -26,6 +26,9 @@ def div(x:'float', y:'float')->'float':   # For division of 2 numbers
 def mod(x:'float', y:'float')->'float':   # For finding the modulus of 2 numbers
     return  x%y
 
+def percentage(x:'float', y:'float')->'float':   # For finding the modulus of 2 numbers
+    return ((x+y)/2 ) * 100
+
 def factorial(n:'int')->'int': # To find the factorial of 2 numbers
     # single line to find factorial
     return 1 if (n == 1 or n == 0) else n * factorial(n - 1)
