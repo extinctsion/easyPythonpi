@@ -17,6 +17,8 @@ def multi(x:'float', y:'float')->'float': # For multiplication of 2 numbers
 
 def average(x:'float', y:'float')->'float': # For average of 2 numbers
     return  (x+y)/2
+def average3(x:'float', y:'float', z:'float')->'float': # For average of 2 numbers
+    return  (x+y+z)/2
 
 def div(x:'float', y:'float')->'float':   # For division of 2 numbers
     return  x/y
