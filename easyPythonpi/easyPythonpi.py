@@ -15,10 +15,16 @@ def sub(x:'float', y:'float')->'float':  # For substraction of 2 numbers
 def multi(x:'float', y:'float')->'float': # For multiplication of 2 numbers
     return  x*y
 
-def average(x:'float', y:'float')->'float': # For average of 2 numbers
-    return  (x+y)/2
-def average3(x:'float', y:'float', z:'float')->'float': # For average of 2 numbers
-    return  (x+y+z)/2
+
+def calculate_average(*args, **kwargs):
+    total_sum = sum(args)
+    count = len(args) + len(kwargs.values())
+    
+    for value in kwargs.values():
+        total_sum += value
+    
+    average = total_sum / count
+    return average
 
 def div(x:'float', y:'float')->'float':   # For division of 2 numbers
     return  x/y
@@ -28,6 +34,9 @@ def mod(x:'float', y:'float')->'float':   # For finding the modulus of 2 numbers
 
 def percentage(x:'float', y:'float')->'float':   # For finding the modulus of 2 numbers
     return ((x+y)/2 ) * 100
+def percentage3(x:'float', y:'float',z:'float')->'float':   # For finding the modulus of 2 numbers
+    return ((x+y+z)/2 ) * 100
+
 
 def factorial(n:'int')->'int': # To find the factorial of 2 numbers
     # single line to find factorial
