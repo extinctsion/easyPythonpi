@@ -32,10 +32,10 @@ def div(x:'float', y:'float')->'float':   # For division of 2 numbers
 def mod(x:'float', y:'float')->'float':   # For finding the modulus of 2 numbers
     return  x%y
 
-def percentage(x:'float', y:'float')->'float':   # For finding the modulus of 2 numbers
+def percentage(x:'float', y:'float')->'float':   # For finding the percentage of 2 numbers
     return ((x+y)/2 ) * 100
-def percentage3(x:'float', y:'float',z:'float')->'float':   # For finding the modulus of 2 numbers
-    return ((x+y+z)/2 ) * 100
+def percentage3(x:'float', y:'float',z:'float')->'float':   # For finding the percentage of 3 numbers
+    return ((x+y+z)/3 ) * 100
 
 
 def factorial(n:'int')->'int': # To find the factorial of 2 numbers
