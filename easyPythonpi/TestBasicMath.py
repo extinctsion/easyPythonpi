@@ -1,7 +1,7 @@
 import unittest
 import easyPythonpi
 
-class TestMathFunctions(unittest.TestCase):
+class TestBasicMath(unittest.TestCase):
 
     def test_add_positive_numbers(self):
         self.assertEqual(easyPythonpi.add(2, 3), 5)
