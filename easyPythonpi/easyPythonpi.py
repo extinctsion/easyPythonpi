@@ -15,11 +15,29 @@ def sub(x:'float', y:'float')->'float':  # For substraction of 2 numbers
 def multi(x:'float', y:'float')->'float': # For multiplication of 2 numbers
     return  x*y
 
+
+def calculate_average(*args, **kwargs):
+    total_sum = sum(args)
+    count = len(args) + len(kwargs.values())
+    
+    for value in kwargs.values():
+        total_sum += value
+    
+    average = total_sum / count
+    return average
+
 def div(x:'float', y:'float')->'float':   # For division of 2 numbers
     return  x/y
 
 def mod(x:'float', y:'float')->'float':   # For finding the modulus of 2 numbers
     return  x%y
+
+def calculate_percentage(part, whole):
+   
+    if whole == 0:
+        return 0  # Avoid division by zero
+    return (part / whole) * 100
+
 
 def factorial(n:'int')->'int': # To find the factorial of 2 numbers
     # single line to find factorial
