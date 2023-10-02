@@ -99,7 +99,9 @@
    *Note: To complete the Hacktoberfest challenge, you need to open four valid pull requests. If you've followed the above steps, you've already opened one pull request, and you need three more.*
 </details>
 <br>
-
+<div align="center">
+![Library File structure](easypythonpi_diagram.png)
+</div>
 <u>
     <h2>Running Test Cases</h2>
 </u>
