@@ -2,6 +2,7 @@ import unittest
 import sys,os
 p=os.getcwd()[:-11]
 sys.path.append(f"{p}/methods")
+l=f"{p}/methods/basics"
 from basics import *
 
 class TestBasicMath(unittest.TestCase):

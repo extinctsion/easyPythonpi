@@ -18,6 +18,7 @@ from methods.matrix import *
 
 # define exception for invalid Binary Strings  
 
+
 class InvalidBinaryException(Exception):
     pass
 
