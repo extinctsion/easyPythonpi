@@ -1,10 +1,8 @@
-import os,sys
-p=os.getcwd()[:-11]
-sys.path.append(f"{p}/methods")
-from basics import *
+import sys,os
+sys.path.append(f'{os.getcwd()[:-11]}')
+from easyPythonpi import easyPythonpi as pi
+from easyPythonpi.methods.basics import *
 import unittest
-sys.path.append(f"{p}")
-import easyPythonpi as pi
 import regex as re
 class TestBin2Hex(unittest.TestCase):
 

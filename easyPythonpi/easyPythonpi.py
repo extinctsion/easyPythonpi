@@ -1,4 +1,5 @@
 import regex as re,os,sys
+sys.path.append('/home/jugal/github/easyPythonpi/easyPythonpi')
 from methods.Graph import *
 from methods.search import *
 from methods.sorting import *

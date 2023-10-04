@@ -1,10 +1,7 @@
 import unittest
 import sys,os
-p=os.getcwd()[:-11]
-sys.path.append(f"{p}/methods")
-l=f"{p}/methods/basics"
-from basics import *
-
+sys.path.append(f'{os.getcwd()[:-11]}')
+from easyPythonpi.methods.basics import *
 class TestBasicMath(unittest.TestCase):
 
     def test_add_positive_numbers(self):

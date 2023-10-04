@@ -1,10 +1,8 @@
-import os,sys
-p=os.getcwd()[:-11]
-sys.path.append(f"{p}/methods")
-from basics import fibonacci
+import sys,os
+sys.path.append(f'{os.getcwd()[:-11]}')
+from easyPythonpi.methods.basics import fibonacci
 
 import unittest
-sys.path.append(p)
 from easyPythonpi import InvalidNumberFibException
 
 class TestFibRefactored(unittest.TestCase):
