@@ -1,7 +1,7 @@
 import unittest
 import sys,os
 sys.path.append(f'{os.getcwd()[:-11]}')
-from easyPythonpi.methods.basics import *
+from easyPythonpi import *
 class TestBasicMath(unittest.TestCase):
 
     def test_add_positive_numbers(self):

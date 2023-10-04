@@ -1,5 +1,4 @@
-import sys,os
-sys.path.append(f'{os.getcwd()[:-11]}')
+import os
 def test_all():
   os.system("python3 basics_test.py")
   os.system("python3 graph_test.py")

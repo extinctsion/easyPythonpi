@@ -1,7 +1,7 @@
 # Import the necessary modules and functions from searchalgorithms.py
 import sys,os
 sys.path.append(f'{os.getcwd()[:-11]}')
-from easyPythonpi.methods.search import *
+from easyPythonpi import *
 # Create a sample graph for testing
 graph = {
     'A': ['B', 'C'],

@@ -1,7 +1,6 @@
 import sys,os
 sys.path.append(f'{os.getcwd()[:-11]}')
-from easyPythonpi import easyPythonpi as pi
-from easyPythonpi.methods.basics import *
+from easyPythonpi import *
 import unittest
 import regex as re
 class TestBin2Hex(unittest.TestCase):
@@ -97,43 +96,43 @@ class TestBin2Hex(unittest.TestCase):
         self.assertEqual( bin2hex('0100011111'), '11F')  
 
     def test_invalid_binary_A(self):
-        with self.assertRaises(pi.InvalidBinaryException):
+        with self.assertRaises(InvalidBinaryException):
             bin2hex('A') 
 
     def test_invalid_binary_123(self):
-        with self.assertRaises(pi.InvalidBinaryException):
+        with self.assertRaises(InvalidBinaryException):
             bin2hex('123')  
 
     def test_invalid_binary_0101A1000100(self):
-        with self.assertRaises(pi.InvalidBinaryException):
+        with self.assertRaises(InvalidBinaryException):
             bin2hex('0101A1000100')  
 
     def test_invalid_binary_A101100010B(self):
-        with self.assertRaises(pi.InvalidBinaryException):
+        with self.assertRaises(InvalidBinaryException):
             bin2hex('A101100010B')  
 
     def test_invalid_binary_nonalphanumeric(self):
-        with self.assertRaises(pi.InvalidBinaryException):
+        with self.assertRaises(InvalidBinaryException):
             bin2hex('!')    
 
     def test_invalid_binary_nonalphanumeric_in_binary(self):
-        with self.assertRaises(pi.InvalidBinaryException):
+        with self.assertRaises(InvalidBinaryException):
             bin2hex('001~') 
 
     def test_invalid_binary_subtraction(self):
-        with self.assertRaises(pi.InvalidBinaryException):
+        with self.assertRaises(InvalidBinaryException):
             bin2hex('0000-1000')            
 
     def test_invalid_binary_anding(self):
-        with self.assertRaises(pi.InvalidBinaryException):
+        with self.assertRaises(InvalidBinaryException):
             bin2hex('0000&1000')   
 
     def test_invalid_helloWorld_expression(self):
-        with self.assertRaises(pi.InvalidBinaryException):
+        with self.assertRaises(InvalidBinaryException):
             bin2hex('hello world')    
 
     def test_invalid_regexpression(self):
-        with self.assertRaises(pi.InvalidBinaryException):
+        with self.assertRaises(InvalidBinaryException):
             bin2hex('[0-1]')                        
     
     
@@ -163,34 +162,34 @@ class TestBin2Octal(unittest.TestCase):
     def test_single_binary_00010(self):
         self.assertEqual( bin2oct('00010'), '02')     
     def test_invalid_binary_A(self):
-        with self.assertRaises(pi.InvalidBinaryException):
+        with self.assertRaises(InvalidBinaryException):
             bin2oct('A') 
     def test_invalid_binary_123(self):
-        with self.assertRaises(pi.InvalidBinaryException):
+        with self.assertRaises(InvalidBinaryException):
             bin2oct('123')  
     def test_invalid_binary_0101A1000100(self):
-        with self.assertRaises(pi.InvalidBinaryException):
+        with self.assertRaises(InvalidBinaryException):
             bin2oct('0101A1000100')  
     def test_invalid_binary_A101100010B(self):
-        with self.assertRaises(pi.InvalidBinaryException):
+        with self.assertRaises(InvalidBinaryException):
             bin2oct('A101100010B')  
     def test_invalid_binary_nonalphanumeric(self):
-        with self.assertRaises(pi.InvalidBinaryException):
+        with self.assertRaises(InvalidBinaryException):
             bin2oct('!')    
     def test_invalid_binary_nonalphanumeric_in_binary(self):
-        with self.assertRaises(pi.InvalidBinaryException):
+        with self.assertRaises(InvalidBinaryException):
             bin2oct('001~') 
     def test_invalid_binary_subtraction(self):
-        with self.assertRaises(pi.InvalidBinaryException):
+        with self.assertRaises(InvalidBinaryException):
             bin2oct('0000-1000')            
     def test_invalid_binary_anding(self):
-        with self.assertRaises(pi.InvalidBinaryException):
+        with self.assertRaises(InvalidBinaryException):
             bin2oct('0000&1000')   
     def test_invalid_helloWorld_expression(self):
-        with self.assertRaises(pi.InvalidBinaryException):
+        with self.assertRaises(InvalidBinaryException):
             bin2oct('hello world')    
     def test_invalid_regexpression(self):
-        with self.assertRaises(pi.InvalidBinaryException):
+        with self.assertRaises(InvalidBinaryException):
             bin2oct('[0-1]')  
 
 if __name__ == '__main__':

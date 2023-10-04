@@ -1,8 +1,7 @@
 # Import the necessary modules and classes from graph.py
 import sys,os
 sys.path.append(f'{os.getcwd()[:-11]}')
-from easyPythonpi.methods.Graph import Graph
-from easyPythonpi.methods.search import *
+from easyPythonpi import *
 # Create an instance of the Graph class
 graph = Graph()
 

@@ -1,6 +1,6 @@
 import sys,os
 sys.path.append(f'{os.getcwd()[:-11]}')
-from easyPythonpi.methods.basics import fibonacci
+from easyPythonpi import *
 
 import unittest
 from easyPythonpi import InvalidNumberFibException

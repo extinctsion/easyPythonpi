@@ -1,12 +1,6 @@
-import regex as re,os,sys
-sys.path.append('/home/jugal/github/easyPythonpi/easyPythonpi')
-from methods.Graph import *
-from methods.search import *
-from methods.sorting import *
-from methods.array import *
-from methods.basics import *
-from methods.linkedlist import *
-from methods.matrix import *
+import regex as re
+
+
 """  A python module that helps you to calculate some of the  most used calculations.....
     usage--
             Just download the file from git and unzip in ur system.
