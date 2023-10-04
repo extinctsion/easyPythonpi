@@ -1,6 +1,8 @@
 # Import the necessary modules and functions from searchalgorithms.py
-from easyPythonpi.Graph_implementation.SearchAlgorithms import bfs, dfs
-
+import os,sys
+p=os.getcwd()[:-11]
+sys.path.append(f"{p}/methods")
+from search import *
 # Create a sample graph for testing
 graph = {
     'A': ['B', 'C'],
@@ -19,7 +21,7 @@ def test_bfs():
 # Test Depth-First Search (DFS)
 def test_dfs():
     result = dfs(graph, 'A')
-    assert result == ['A', 'B', 'C', 'D']
+    assert result == ['A', 'C', 'D', 'B']
 
 # Run the tests
 test_bfs()

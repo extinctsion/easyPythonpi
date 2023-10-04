@@ -10,7 +10,7 @@ def bfs(graph, start):
         if node not in visited:
             visited.add(node)
             result.append(node)
-            queue.extend(graph.get(node, []) - visited)
+            queue.extend(set(graph.get(node, [])) - visited)
 
     return result
 
@@ -24,7 +24,7 @@ def dfs(graph, start):
         if node not in visited:
             visited.add(node)
             result.append(node)
-            stack.extend(graph.get(node, []) - visited)
+            stack.extend(set(graph.get(node, [])) - visited)
 
     return result
 

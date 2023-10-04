@@ -1,46 +1,51 @@
+import os,sys
+p=os.getcwd()[:-11]
+sys.path.append(f"{p}/methods")
+from basics import fibonacci
+
 import unittest
-import easyPythonpi
+sys.path.append(p)
 from easyPythonpi import InvalidNumberFibException
 
 class TestFibRefactored(unittest.TestCase):
 
     def test_fibonacci_0(self):
-        with self.assertRaises(easyPythonpi.InvalidNumberFibException):
-            easyPythonpi.fibonacci(0)  
+        with self.assertRaises(InvalidNumberFibException):
+            fibonacci(0)  
 
     def test_fibonacci_negative_number(self):
-        with self.assertRaises(easyPythonpi.InvalidNumberFibException):
-            easyPythonpi.fibonacci(-10)          
+        with self.assertRaises(InvalidNumberFibException):
+            fibonacci(-10)          
 
     def test_fibonacci_1(self):
-        self.assertEqual( easyPythonpi.fibonacci(1), 0)    
+        self.assertEqual( fibonacci(1), 0)    
 
     def test_fibonacci_2(self):
-        self.assertEqual( easyPythonpi.fibonacci(2), 1)      
+        self.assertEqual( fibonacci(2), 1)      
 
     def test_fibonacci_3(self):
-        self.assertEqual( easyPythonpi.fibonacci(3), 1)   
+        self.assertEqual( fibonacci(3), 1)   
 
     def test_fibonacci_4(self):
-        self.assertEqual( easyPythonpi.fibonacci(4), 2)        
+        self.assertEqual( fibonacci(4), 2)        
 
     def test_fibonacci_5(self):
-        self.assertEqual( easyPythonpi.fibonacci(5), 3) 
+        self.assertEqual( fibonacci(5), 3) 
 
     def test_fibonacci_6(self):
-        self.assertEqual( easyPythonpi.fibonacci(6), 5) 
+        self.assertEqual( fibonacci(6), 5) 
 
     def test_fibonacci_7(self):
-        self.assertEqual( easyPythonpi.fibonacci(7), 8)  
+        self.assertEqual( fibonacci(7), 8)  
 
     def test_fibonacci_8(self):
-        self.assertEqual( easyPythonpi.fibonacci(8), 13)                           
+        self.assertEqual( fibonacci(8), 13)                           
             
     def test_fibonacci_9(self):
-        self.assertEqual( easyPythonpi.fibonacci(9), 21)  
+        self.assertEqual( fibonacci(9), 21)  
 
     def test_fibonacci_10(self):
-        self.assertEqual( easyPythonpi.fibonacci(10), 34)    
+        self.assertEqual( fibonacci(10), 34)    
 
 if __name__ == '__main__':
     unittest.main()
