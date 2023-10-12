@@ -1,8 +1,9 @@
+#!/usr/bin/env python
+#-*- coding: utf-8 -*-
+
+import easyPythonpi.easyPythonpi as pi
 import regex as re
-import os,sys
-p=os.getcwd()[:-11]
-sys.path.append(p)
-import easyPythonpi as pi
+
 def add(x:'float', y:'float')->'float': # For addition of 2 numbers
     return  x+y
 
@@ -48,7 +49,7 @@ def factors(n:'int')->'int':
             factors.append(i)
     return factors
 
-def Area_circle(r:'double')->'double':  # To find the area of a circle using the radius r
+def Area_circle(r:'float')->'float':  # To find the area of a circle using the radius r
     PI = 3.142
     return PI * (r * r)
 
@@ -152,7 +153,7 @@ def oct2bin(x:'oct')->'bin':
     return r
 
 #A method to convert binary input to decimal numbers
-def bin2dec(x:'bin')->'dec': 
+def bin2dec(x:'bin')->'int': 
     x=list(str(x))
     l=len(x)
     a=0

@@ -1,8 +1,10 @@
+#!/usr/bin/env python
+#-*- coding: utf-8 -*-
+
 # Import the necessary modules and functions from searchalgorithms.py
-import os,sys
-p=os.getcwd()[:-11]
-sys.path.append(f"{p}/methods")
-from search import *
+
+from easyPythonpi.methods.search import *
+
 # Create a sample graph for testing
 graph = {
     'A': ['B', 'C'],

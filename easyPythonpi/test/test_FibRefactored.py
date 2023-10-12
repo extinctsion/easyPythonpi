@@ -1,14 +1,13 @@
-import os,sys
-p=os.getcwd()[:-11]
-sys.path.append(f"{p}/methods")
-from basics import fibonacci
+#!/usr/bin/env python
+#-*- coding: utf-8 -*-
 
 import unittest
-sys.path.append(p)
-from easyPythonpi import InvalidNumberFibException
+
+from easyPythonpi.methods.basics import fibonacci
+from easyPythonpi.easyPythonpi import InvalidNumberFibException
+
 
 class TestFibRefactored(unittest.TestCase):
-
     def test_fibonacci_0(self):
         with self.assertRaises(InvalidNumberFibException):
             fibonacci(0)  

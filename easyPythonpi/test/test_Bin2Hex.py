@@ -1,13 +1,13 @@
-import os,sys
-p=os.getcwd()[:-11]
-sys.path.append(f"{p}/methods")
-from basics import *
-import unittest
-sys.path.append(f"{p}")
-import easyPythonpi as pi
-import regex as re
-class TestBin2Hex(unittest.TestCase):
+#!/usr/bin/env python
+#-*- coding: utf-8 -*-
 
+import unittest
+import easyPythonpi.easyPythonpi as pi
+
+from easyPythonpi.methods.basics import *
+
+
+class TestBin2Hex(unittest.TestCase):
     def test_single_binary_zero(self):
         self.assertEqual( bin2hex('0'), '0')
 
