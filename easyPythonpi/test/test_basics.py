@@ -1,12 +1,11 @@
+#!/usr/bin/env python
+#-*- coding: utf-8 -*-
+
 import unittest
-import sys,os
-p=os.getcwd()[:-11]
-sys.path.append(f"{p}/methods")
-l=f"{p}/methods/basics"
-from basics import *
+
+from easyPythonpi.methods.basics import *
 
 class TestBasicMath(unittest.TestCase):
-
     def test_add_positive_numbers(self):
         self.assertEqual(add(2, 3), 5)
 

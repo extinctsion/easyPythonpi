@@ -1,3 +1,8 @@
+#!/usr/bin/env python
+#-*- coding: utf-8 -*-
+
+import heapq
+
 from collections import deque
 
 def bfs(graph, start):
@@ -28,7 +33,6 @@ def dfs(graph, start):
 
     return result
 
-import heapq
 
 def dijkstra(graph, start):
     distances = {vertex: float('infinity') for vertex in graph}

@@ -1,8 +1,9 @@
+#!/usr/bin/env python
+#-*- coding: utf-8 -*-
+
+import easyPythonpi.easyPythonpi as pi
 import regex as re
-import os,sys
-p=os.getcwd()[:-11]
-sys.path.append(p)
-import easyPythonpi as pi
+
 def add(x:'float', y:'float')->'float': # For addition of 2 numbers
     return  x+y
 
