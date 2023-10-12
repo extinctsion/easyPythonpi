@@ -11,3 +11,4 @@
 __all__ = ('easyPythonpi_VERSION')
 
 easyPythonpi_VERSION = '1.1.9'
+import __main__
