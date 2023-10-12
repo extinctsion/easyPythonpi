@@ -1,21 +1,24 @@
+#!/usr/bin/env python
+#-*- coding: utf-8 -*-
+
 
 # Matrix problems
 
-def matrix_add(array1:'array',array2:'array')->'array':
+def matrix_add(array1:'list',array2:'list')->'list':
     import numpy as np
     
     result=np.array(array1)+np.array(array2)
     return result
 
 
-def matrix_sub(array1:'array',array2:'array')->'array':
+def matrix_sub(array1:'list',array2:'list')->'list':
     import numpy as np
     
     result=np.array(array1)-np.array(array2)
     return result
 
  # Multiplication of two                   
-def matrix_mul(matrix1:'array',matrix2:'array')->'array':
+def matrix_mul(matrix1:'list',matrix2:'list')->'list':
     import numpy as np
     matrix1=np.array(matrix1)  # converting list into array
     matrix2=np.array(matrix2)  
@@ -55,7 +58,7 @@ def matrix_mul(matrix1:'array',matrix2:'array')->'array':
             
             
 
-def matrix_shape(matrix1:'array')->'list':
+def matrix_shape(matrix1:'list')->'list':
     import numpy as np
     matrix1=np.array(matrix1)  
     a=list(matrix1.shape)      
@@ -68,7 +71,7 @@ def matrix_shape(matrix1:'array')->'list':
                           
                       
 
-def matrix_transpose(matrix1:'array')->'array':
+def matrix_transpose(matrix1:'list')->'list':
     import numpy as np
     matrix1=np.array(matrix1)  # converting list into array
     a=list(matrix1.shape)      # getting the shape of the array

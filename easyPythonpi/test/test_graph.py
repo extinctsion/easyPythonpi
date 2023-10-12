@@ -1,11 +1,14 @@
+#!/usr/bin/env python
+#-*- coding: utf-8 -*-
+
 # Import the necessary modules and classes from graph.py
 #from Graph import Graph
-import os,sys
-p=os.getcwd()[:-11]
-sys.path.append(f"{p}/methods")
-from Graph import Graph
-from search import *
+
+from easyPythonpi.methods.graph import Graph
+from easyPythonpi.methods.search import *
+
 # Create an instance of the Graph class
+
 graph = Graph()
 
 # Test adding edges

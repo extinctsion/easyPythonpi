@@ -1,3 +1,7 @@
+#!/usr/bin/env python
+#-*- coding: utf-8 -*-
+#Linked list  
+
 class Node:
     """
     Class for creating Nodes of singly linked list
