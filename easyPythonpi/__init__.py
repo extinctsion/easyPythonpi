@@ -8,6 +8,8 @@
             'from easypythonpi import *' and u r good to go...
                             ~Happy programming"""
 
+import __main__
+
 __all__ = ('easyPythonpi_VERSION')
 
 easyPythonpi_VERSION = '1.1.9'
