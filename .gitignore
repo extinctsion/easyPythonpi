@@ -1,0 +1,3 @@
+# excludes all pycache files
+methods/__pycache__/
+__pycache__/
