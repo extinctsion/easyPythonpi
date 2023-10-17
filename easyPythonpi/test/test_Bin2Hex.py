@@ -2,12 +2,11 @@
 #-*- coding: utf-8 -*-
 
 import unittest
-import easyPythonpi.easyPythonpi as pi
 
-from easyPythonpi.methods.basics import *
+from methods.bitwiseops import *
 
 
-class TestBin2Hex(unittest.TestCase):
+class TestBitWiseOperations(unittest.TestCase):
     def test_single_binary_zero(self):
         self.assertEqual( bin2hex('0'), '0')
 
@@ -136,10 +135,8 @@ class TestBin2Hex(unittest.TestCase):
 
     def test_invalid_regexpression(self):
         with self.assertRaises(pi.InvalidBinaryException):
-            bin2hex('[0-1]')                        
-    
-    
-class TestBin2Octal(unittest.TestCase): 
+            bin2hex('[0-1]')   
+
     def test_single_binary_zero(self):
         self.assertEqual( bin2oct('0'), '0')
     def test_single_binary_one(self):
