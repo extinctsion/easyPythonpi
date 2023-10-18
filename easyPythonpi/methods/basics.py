@@ -341,3 +341,27 @@ def count_vowels(ip_str:'str')->'int':
     #return the count dictionary
     return count
 
+
+
+# A function that takes a range of two numbers and a user's choice (odd, even, or prime) and returns the desired numbers.
+def is_prime(num): #function to check if a number is prime
+    if num <= 1:
+        return False
+    for i in range(2, int(num**0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
+
+def get_numbers(start, end, choice): #function to get the starting and ending range of numbers and the user's choice ('odd', 'even', or 'prime')
+    numbers = []
+
+    for num in range(start, end + 1): #iterating through the range of numbers and appends the desired numbers (based on the user's choice) to the numbers list
+        if choice == 'odd' and num % 2 == 1:
+            numbers.append(num)
+        elif choice == 'even' and num % 2 == 0:
+            numbers.append(num)
+        elif choice == 'prime' and is_prime(num):
+            numbers.append(num)
+# returns the  list of desired numbers is returned as the result
+    return numbers 
+
