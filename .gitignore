@@ -1,0 +1,3 @@
+# prevents all pycaches from being added 
+__pycache__
+easyPythonpi/__pycache__
