@@ -16,7 +16,9 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install dependencies
-        run: pip install .
+        run: |
+            pip install .
+            pip install regex
       - name: Run tests
         run: |
             cd easyPythonpi
