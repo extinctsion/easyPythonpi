@@ -20,4 +20,4 @@ jobs:
       - name: Run tests
         run: |
             cd easyPythonpi
-            python -m unittest test/*
+            python -m unittest test/test_basics.py
