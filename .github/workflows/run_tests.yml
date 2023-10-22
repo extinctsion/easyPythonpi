@@ -7,8 +7,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        python-version: [ "3.7"]
-        os: [ubuntu-latest]
+        python-version: ["3.7", "3.8", "3.9", "3.10", "3.11", "3.12"]
+        os: [ubuntu - latest, windows - latest, macos - latest]
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python version ${{ matrix.python-version }}
@@ -21,5 +21,4 @@ jobs:
             pip install regex
       - name: Run tests
         run: |
-            cd easyPythonpi
-            python -m unittest test/*
+            python -m unittest easyPythonpi/test/*
