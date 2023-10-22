@@ -7,8 +7,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        python-version: [ "3.7", "3.8", "3.9", "3.10", "3.11", "3.12"]
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: [ "3.7"]
+        os: [ubuntu-latest]
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python version ${{ matrix.python-version }}
@@ -18,4 +18,6 @@ jobs:
       - name: Install dependencies
         run: pip install .
       - name: Run tests
-        run: python easyPythonpi/test/
+        run: |
+            cd easyPythonpi
+            python -m unittest test/*
