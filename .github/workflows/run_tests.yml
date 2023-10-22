@@ -1,8 +1,6 @@
 name: Run tests on pull request
 
-on:
-  issue_comment:
-    types: [created]
+on: push
 
 jobs:
   test:
