@@ -23,7 +23,6 @@ jobs:
             pip install .
       - name: Run black and isort
         run: |
-            cd easyPythonpi
-            python -m black methods/* tests/*
-            python -m isort methods/* tests/*
+            python -m black easyPythonpi/*
+            python -m isort easyPythonpi/*
             
