@@ -25,4 +25,5 @@ jobs:
             pip install regex
       - name: Run tests
         run: |
-            python -m unittest easyPythonpi/test/*
+            cd easyPythonpi
+            python -m unittest test/*
