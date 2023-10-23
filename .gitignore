@@ -1,3 +1,5 @@
 # prevents all pycaches from being added 
 __pycache__
 easyPythonpi/__pycache__
+easyPythonpi/methods/__pycache__
+easyPythonpi/test/__pycache__

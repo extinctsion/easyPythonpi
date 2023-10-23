@@ -1,9 +1,10 @@
 #!/usr/bin/env python
-#-*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 
 import unittest
 
-from methods.basics import *
+from easyPythonpi.methods.basics import *
+
 
 class TestBasicMath(unittest.TestCase):
     def test_add_positive_numbers(self):
@@ -55,5 +56,5 @@ class TestBasicMath(unittest.TestCase):
             mod(8, 0)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

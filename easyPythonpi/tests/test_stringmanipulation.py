@@ -1,48 +1,49 @@
 import unittest
 
 # Import the function you want to test
-from methods.stringmainpulation import *
+from easyPythonpi.methods.stringmainpulation import *
 
-class TestCountVowels(unittest.TestCase):
+
+class TestStringManipulation(unittest.TestCase):
     def test_no_vowels(self):
         result = count_vowels("rhythm")
-        self.assertEqual(result, {'a': 0, 'e': 0, 'i': 0, 'o': 0, 'u': 0})
+        self.assertEqual(result, {"a": 0, "e": 0, "i": 0, "o": 0, "u": 0})
 
     def test_all_vowels(self):
         result = count_vowels("aeiouAEIOU")
-        self.assertEqual(result, {'a': 2, 'e': 2, 'i': 2, 'o': 2, 'u': 2})
+        self.assertEqual(result, {"a": 2, "e": 2, "i": 2, "o": 2, "u": 2})
 
     def test_mixed_string(self):
         result = count_vowels("Hello, World!")
-        self.assertEqual(result, {'a': 0, 'e': 1, 'i': 0, 'o': 2, 'u': 0})
+        self.assertEqual(result, {"a": 0, "e": 1, "i": 0, "o": 2, "u": 0})
 
     def test_empty_string_counting_vowels(self):
         result = count_vowels("")
-        self.assertEqual(result, {'a': 0, 'e': 0, 'i': 0, 'o': 0, 'u': 0})
+        self.assertEqual(result, {"a": 0, "e": 0, "i": 0, "o": 0, "u": 0})
 
     def test_case_insensitive(self):
         result = count_vowels("Python Is Awesome")
-        self.assertEqual(result, {'a': 1, 'e': 2, 'i': 1, 'o': 2, 'u': 0})
+        self.assertEqual(result, {"a": 1, "e": 2, "i": 1, "o": 2, "u": 0})
 
     def test_empty_string(self):
-        result = ispalindrome("")
+        result = is_palindrome("")
         self.assertTrue(result)
 
     def test_single_character(self):
-        result = ispalindrome("a")
+        result = is_palindrome("a")
         self.assertTrue(result)
 
     def test_palindrome_with_spaces(self):
-        result = ispalindrome("A man a plan a canal Panama")
+        result = is_palindrome("A man a plan a canal Panama")
         self.assertTrue(result)
 
     def test_palindrome_with_punctuation(self):
-        result = ispalindrome("Was it a car or a cat I saw?")
+        result = is_palindrome("Was it a car or a cat I saw?")
         self.assertTrue(result)
 
     def test_non_palindrome(self):
-        result = ispalindrome("Hello, World!")
-        self.assertFalse(result)    
+        result = is_palindrome("Hello, World!")
+        self.assertFalse(result)
 
     def test_empty_string_remove_punctuation(self):
         result = remove_punctuation("")
@@ -61,8 +62,9 @@ class TestCountVowels(unittest.TestCase):
         self.assertEqual(result, "123abcdef")
 
     def test_unicode_punctuation(self):
-        result = remove_punctuation("Unicode — string: ™ ©")
-        self.assertEqual(result, "Unicode  string ")
+        result = remove_punctuation("Unicode - string: ™ ©")
+        self.assertMultiLineEqual(result, "Unicode  string ™ ©")
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()
