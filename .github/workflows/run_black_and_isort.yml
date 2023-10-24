@@ -1,0 +1,29 @@
+name: Run checks using black and isort to maintain code structure
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        python-version: ["3.7", "3.8", "3.9", "3.10", "3.11", "3.12"]
+        os: [ ubuntu-latest ]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python version ${{ matrix.python-version }}
+        uses: actions/setup-python@v3
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+            pip install .
+            pip install black isort
+      - name: Run black and isort
+        run: |
+            python -m black easyPythonpi/*
+            python -m isort easyPythonpi/*
+            
