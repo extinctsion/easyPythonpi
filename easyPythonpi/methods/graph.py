@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#-*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 
 
 class Graph:
@@ -9,6 +9,8 @@ class Graph:
     def add_edge(self, u, v):
         if u not in self.graph:
             self.graph[u] = []
+        if v not in self.graph:
+            self.graph[v] = []
         self.graph[u].append(v)
 
     def add_vertex(self, vertex):

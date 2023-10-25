@@ -3,7 +3,7 @@
 
 import unittest
 
-from methods.basics import *
+from easyPythonpi.methods.basics import *
 
 class TestBasicMath(unittest.TestCase):
     def test_add_positive_numbers(self):

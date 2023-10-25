@@ -1,5 +1,5 @@
 import regex as re
-import easyPythonpi as pi
+import easyPythonpi.easyPythonpi as pi
 
 #A method to convert Octal input to binary numbers
 def oct2bin(x:'oct')->'bin':       

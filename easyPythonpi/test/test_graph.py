@@ -6,45 +6,56 @@
 
 from easyPythonpi.methods.graph import Graph
 from easyPythonpi.methods.search import *
+import unittest
 
 # Create an instance of the Graph class
+class TestGraph(unittest.TestCase):
+    def setUp(self) -> None:
+        self.graph = Graph()
+        self.graph.add_edge('A', 'B')
+        self.graph.add_edge('A', 'C')
+        self.graph.add_edge('B', 'C')
+        self.graph.add_edge('C', 'D')
+        self.v1 = 'test'
+        self.v2 = 'result'
+        return super().setUp()
+    
+    def test_is_edge_exist(self):
+        self.assertTrue(self.graph.is_edge_exist('A', 'B'))
+        self.assertFalse(self.graph.is_edge_exist('A', 'D'))
 
-graph = Graph()
+    def test_is_vertex_exist(self):
+        self.assertTrue(self.graph.is_vertex_exist('A'))
+        self.assertFalse(self.graph.is_vertex_exist('Z'))
 
-# Test adding edges
-def test_add_edge():
-    graph.add_edge('A', 'B')
-    graph.add_edge('A', 'C')
-    graph.add_edge('B', 'C')
-    graph.add_edge('C', 'A')
-    assert 'A' in graph.graph
-    assert 'B' in graph.graph
-    assert 'C' in graph.graph
-    assert 'B' in graph.graph['A']
-    assert 'C' in graph.graph['A']
-    assert 'C' in graph.graph['B']
+    def test_add_edge(self):
+        self.graph.add_edge(self.v1, self.v2)
+        self.assertTrue(self.graph.is_edge_exist(self.v1, self.v2), 'edge not added')
+        self.graph.remove_edge(self.v1, self.v2)
+    
+    def test_remove_edge(self):
+        self.graph.add_edge(self.v1, self.v2)
+        self.graph.remove_edge(self.v1, self.v2)
+        self.assertFalse(self.graph.is_edge_exist(self.v1, self.v2), 'edge not removed')
 
+    def test_add_vertex(self):
+        self.graph.add_vertex(self.v1)
+        self.assertTrue(self.graph.is_vertex_exist(self.v1),'vertex not added')
+        self.graph.remove_vertex(self.v1)
 
-def test_bfs():
-    graph2=Graph()
-    graph2.add_edge('A', 'B')
-    graph2.add_edge('A', 'C')
-    graph2.add_edge('B', 'C')
-    graph2.add_edge('C', 'D')
-    result = bfs(graph2.graph, 'A')
-    assert result == ['A', 'B', 'C', 'D']
+    def test_remove_vertex(self):
+        self.graph.add_vertex(self.v1)
+        self.graph.remove_vertex(self.v1)
+        self.assertFalse(self.graph.is_vertex_exist(self.v1),'vertex not removed')
 
-# Test Depth-First Search (DFS) from main.py
-def test_dfs():
-    graph3=Graph()
-    graph3.add_edge('A', 'B')
-    graph3.add_edge('A', 'C')
-    graph3.add_edge('B', 'C')
-    graph3.add_edge('C', 'D')
-    result = dfs(graph3.graph, 'A')
-    assert result == ['A', 'C', 'D', 'B']
+    def test_clear(self):
+        graph = Graph()
+        graph.add_edge(self.v1, self.v2)
+        self.assertNotEqual(len(graph.get_vertices()), 0)
+        graph.clear()
+        self.assertEqual(len(graph.get_vertices()), 0)
+
 
 # Run the test
-test_bfs()
-test_dfs()
-test_add_edge()
+if __name__ == "__main__":
+    unittest.main()

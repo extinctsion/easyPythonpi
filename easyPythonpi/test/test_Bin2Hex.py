@@ -3,7 +3,7 @@
 
 import unittest
 
-from methods.bitwiseops import *
+from easyPythonpi.methods.bitwiseops import *
 
 
 class TestBitWiseOperations(unittest.TestCase):

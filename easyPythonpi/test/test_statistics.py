@@ -1,7 +1,7 @@
 import unittest
 
 # Import the function you want to test
-from  methods.statistics import *
+from easyPythonpi.methods.statistics import *
 
 class TestCalculateAverage(unittest.TestCase):
     def test_single_element_list(self):
