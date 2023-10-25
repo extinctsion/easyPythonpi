@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #-*- coding: utf-8 -*-
 
-import easyPythonpi as pi
+import easyPythonpi.easyPythonpi as pi
 import regex as re
 
 def add(x:'float', y:'float')->'float': # For addition of 2 numbers

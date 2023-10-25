@@ -2,7 +2,7 @@ import easyPythonpi as pi
 import regex as re
 
 def remove_punctuation(my_str:'str')->'str':
-    punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
+    punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_—~™©'''
     # remove punctuations from the string
     no_punct = ""
     #run a for loop and traverse every element in a string and check ,if char is not match with punctuations char then it will add in no_punct
@@ -11,6 +11,9 @@ def remove_punctuation(my_str:'str')->'str':
             no_punct = no_punct + char
     #return no_punct
     return no_punct
+
+def remove_spaces(s: str) -> str:
+      return "".join(s.split(" "))
 
 def count_vowels(ip_str:'str')->'dict':
     # string of vowels
