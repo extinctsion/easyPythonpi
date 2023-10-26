@@ -9,7 +9,6 @@ def remove_punctuation(my_str:'str')->'str':
     for char in my_str:
         if char not in punctuations:
             no_punct = no_punct + char
-    #return no_punct
     return no_punct
 
 def count_vowels(ip_str:'str')->'dict':
@@ -29,12 +28,23 @@ def count_vowels(ip_str:'str')->'dict':
     #return the count dictionary
     return count
 
-def ispalindrome(x:'str')->'bool':        # To check if the given parameter is palindrome or not
-    x=str(x)  #explicitly convert into string data type so as to iterate through each character
+# To check if the given parameter is palindrome or not
+def is_palindrome(x:'str')->'bool':        
+    # convert into string data type so as to iterate through each character
+    x=str(x)  
+
+    # remove whitespace, lower case letters, and then remove punctuations
+    x = x.replace(" ", "")
+    x = x.lower()
+    x = remove_punctuation(x)
+
+    # Convert original string to its reversed version
     r=''
     for i in range(len(x)-1,-1,-1):
-                r=r+x[i]
-    if x==r:    # if the parameter get matched with its reverse then returns true othewise false
-            return True
+        r=r+x[i]
+
+    # if the parameter get matched with its reverse then returns true othewise false
+    if x==r:    
+        return True
     else:
-            return False 
+        return False 
