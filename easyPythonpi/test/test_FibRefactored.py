@@ -3,8 +3,8 @@
 
 import unittest
 
-from easyPythonpi.methods.basics import fibonacci
-from easyPythonpi.easyPythonpi import InvalidNumberFibException
+from methods.basics import fibonacci
+from easyPythonpi import InvalidNumberFibException
 
 
 class TestFibRefactored(unittest.TestCase):

@@ -4,8 +4,8 @@
 # Import the necessary modules and classes from graph.py
 #from Graph import Graph
 
-from easyPythonpi.methods.graph import Graph
-from easyPythonpi.methods.search import *
+from methods.Graph import Graph
+from methods.search import *
 
 # Create an instance of the Graph class
 
