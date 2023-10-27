@@ -3,7 +3,7 @@
 
 # Import the necessary modules and functions from searchalgorithms.py
 
-from easyPythonpi.methods.search import *
+from methods.search import *
 
 # Create a sample graph for testing
 graph = {
