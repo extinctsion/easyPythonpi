@@ -7,7 +7,7 @@
                             ~Happy programming"""
                         
 
-# Programmer defined exceptions go here:
+# The programmer defined exceptions go here:
 
 # define exception for invalid Binary Strings  
 
