@@ -1,3 +1,6 @@
 # prevents all pycaches from being added 
 __pycache__
 easyPythonpi/__pycache__
+build
+dist
+easyPythonpi.egg.info
