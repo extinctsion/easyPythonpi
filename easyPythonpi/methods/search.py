@@ -1,37 +1,46 @@
 #!/usr/bin/env python
 #-*- coding: utf-8 -*-
-
+import sys,os
+sys.path.append(f'{os.getcwd()[:-4]}')
 import heapq
 
 from collections import deque
 
-def bfs(graph, start):
-    visited = set()
-    queue = deque([start])
-    result = []
+visited = []
+queue = []   
+resultbfs=[]
+resultdfs=[]
+visitedbfs=[]
+visiteddfs=[]
 
-    while queue:
-        node = queue.popleft()
-        if node not in visited:
-            visited.add(node)
-            result.append(node)
-            queue.extend(set(graph.get(node, [])) - visited)
+def bfs(graph, node):   #bfs
+  visitedbfs.append(node)
+  queue.append(node)
 
-    return result
+  while queue:
+    s = queue.pop(0) 
+    if(s!=''):
+      resultbfs.append(s)
+      if graph[s]!=['']:
+       for neighbour in graph[s]:
+         if neighbour not in visitedbfs:
+          visitedbfs.append(neighbour)
+          queue.append(neighbour)
+  return resultbfs      
 
-def dfs(graph, start):
-    visited = set()
-    stack = [start]
-    result = []
+    
 
-    while stack:
-        node = stack.pop()
-        if node not in visited:
-            visited.add(node)
-            result.append(node)
-            stack.extend(set(graph.get(node, [])) - visited)
-
-    return result
+def dfs(graph, node):
+    if node not in visiteddfs:
+         if(node!=''):
+            resultdfs.append(node)
+         visiteddfs.append(node)
+         if(graph[node]!=['']):
+          for n in graph[node]:
+           dfs(graph, n)
+            
+   
+    return resultdfs
 
 
 def dijkstra(graph, start):
