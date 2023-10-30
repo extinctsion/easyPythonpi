@@ -12,7 +12,8 @@ resultbfs=[]
 resultdfs=[]
 visitedbfs=[]
 visiteddfs=[]
-def bfs(graph, node):
+
+def bfs(graph, node):   #bfs
   visitedbfs.append(node)
   queue.append(node)
 
@@ -20,11 +21,11 @@ def bfs(graph, node):
     s = queue.pop(0) 
     if(s!=''):
       resultbfs.append(s)
-    if graph[s]!=['']:
-     for neighbour in graph[s]:
-       if neighbour not in visitedbfs:
-         visitedbfs.append(neighbour)
-         queue.append(neighbour)
+      if graph[s]!=['']:
+       for neighbour in graph[s]:
+         if neighbour not in visitedbfs:
+          visitedbfs.append(neighbour)
+          queue.append(neighbour)
   return resultbfs      
 
     
