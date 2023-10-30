@@ -5,33 +5,40 @@ import heapq
 
 from collections import deque
 
-def bfs(graph, start):
-    visited = set()
-    queue = deque([start])
-    result = []
+visited = []
+queue = []   
+resultbfs=[]
+resultdfs=[]
 
-    while queue:
-        node = queue.popleft()
-        if node not in visited:
-            visited.add(node)
-            result.append(node)
-            queue.extend(set(graph.get(node, [])) - visited)
 
-    return result
+def bfs(graph, node,visited):
+  visited.append(node)
+  queue.append(node)
 
-def dfs(graph, start):
-    visited = set()
-    stack = [start]
-    result = []
+  while queue:
+    s = queue.pop(0) 
+    if(s!=''):
+      resultbfs.append(s)
+    if graph[s]!=['']:
+     for neighbour in graph[s]:
+       if neighbour not in visited:
+         visited.append(neighbour)
+         queue.append(neighbour)
+  return resultbfs      
 
-    while stack:
-        node = stack.pop()
-        if node not in visited:
-            visited.add(node)
-            result.append(node)
-            stack.extend(set(graph.get(node, [])) - visited)
+    
 
-    return result
+def dfs(graph, node,visited):
+    if node not in visited:
+         if(node!=''):
+            resultdfs.append(node)
+         visited.append(node)
+         if(graph[node]!=['']):
+          for n in graph[node]:
+           dfs(graph, n,visited)
+            
+   
+    return resultdfs
 
 
 def dijkstra(graph, start):
