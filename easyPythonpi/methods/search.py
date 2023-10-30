@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 #-*- coding: utf-8 -*-
-
+import sys,os
+sys.path.append(f'{os.getcwd()[:-4]}')
 import heapq
 
 from collections import deque
@@ -9,10 +10,10 @@ visited = []
 queue = []   
 resultbfs=[]
 resultdfs=[]
-
-
-def bfs(graph, node,visited):
-  visited.append(node)
+visitedbfs=[]
+visiteddfs=[]
+def bfs(graph, node):
+  visitedbfs.append(node)
   queue.append(node)
 
   while queue:
@@ -21,21 +22,21 @@ def bfs(graph, node,visited):
       resultbfs.append(s)
     if graph[s]!=['']:
      for neighbour in graph[s]:
-       if neighbour not in visited:
-         visited.append(neighbour)
+       if neighbour not in visitedbfs:
+         visitedbfs.append(neighbour)
          queue.append(neighbour)
   return resultbfs      
 
     
 
-def dfs(graph, node,visited):
-    if node not in visited:
+def dfs(graph, node):
+    if node not in visiteddfs:
          if(node!=''):
             resultdfs.append(node)
-         visited.append(node)
+         visiteddfs.append(node)
          if(graph[node]!=['']):
           for n in graph[node]:
-           dfs(graph, n,visited)
+           dfs(graph, n)
             
    
     return resultdfs
