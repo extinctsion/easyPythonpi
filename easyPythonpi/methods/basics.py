@@ -37,14 +37,6 @@ def factors(n:'int')->'int':
             factors.append(i)
     return factors
 
-def Area_circle(r:'float')->'float':  # To find the area of a circle using the radius r
-    PI = 3.142
-    return PI * (r * r)
-
-def Perimeter_circle(r:'float')->'float': # To find the perimeter of a circle using the radius r
-    PI = 3.142
-    return 2 * PI * r 
-
 def fibonacci(n:'int')->'int':  #To find the nth fibonacci series
     """Finds the fibonacci of the nth sequence.
 

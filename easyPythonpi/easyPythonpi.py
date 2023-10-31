@@ -19,3 +19,6 @@ class InvalidNumberFibException(Exception):
          self.n = n
          self.message = message
          
+class InvalidMeasurementShapeException(Exception):
+    def __init__(self, message="invalid measurement, must be greater than or equal to 0"):
+        self.message = message
