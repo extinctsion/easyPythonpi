@@ -6,30 +6,31 @@ import heapq
 from collections import deque
 
 def bfs(graph, start):
-    visited = set()
+    visited = []
     queue = deque([start])
     result = []
 
     while queue:
         node = queue.popleft()
         if node not in visited:
-            visited.add(node)
+            visited.append(node)
             result.append(node)
-            queue.extend(set(graph.get(node, [])) - visited)
+            #queue.extend(graph.get(node, []) - visited)
+            queue.extend(x for x in graph.get(node, []) if x not in visited)
 
     return result
 
 def dfs(graph, start):
-    visited = set()
+    visited = []
     stack = [start]
     result = []
 
     while stack:
         node = stack.pop()
         if node not in visited:
-            visited.add(node)
+            visited.append(node)
             result.append(node)
-            stack.extend(set(graph.get(node, [])) - visited)
+            stack.extend(x for x in graph.get(node, []) if x not in visited)
 
     return result
 
