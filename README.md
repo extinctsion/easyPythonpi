@@ -137,7 +137,7 @@ Before running the test cases, ensure you have the following prerequisites insta
 <br>
 
 <u>
-    <h2>Setting Up a Virtual Environment (Optional)</h2>
+    <h2>Setting Up a Virtual Environment (Optional method)</h2>
 </u>
 <br>
 
