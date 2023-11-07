@@ -3,29 +3,29 @@
 
 import unittest
 from unittest.mock import patch
-from methods.patternprinting import pyramid_pattern_printing
+from methods.patternprinting import print_pyramid
 from io import StringIO
 import sys
 import contextlib 
 
-class TestBasicMath(unittest.TestCase):
+class TestPrintPyramid(unittest.TestCase):
     @patch('builtins.print')
     def test_patternprinting_numrows_zero_call_print_zero_times(self, mock_print):
-        pyramid_pattern_printing(0, '*')
+        print_pyramid(0, '*')
         self.assertEqual(mock_print.call_count, 0)
 
     def test_pyramid_pattern_printing_zerorows_asteriks(self):
         expected_output = ''
         
         with StringIO() as buffer, contextlib.redirect_stdout(buffer):
-            pyramid_pattern_printing(0, "*")
+            print_pyramid(0, "*")
             printed_output = buffer.getvalue()
 
         self.assertEqual(printed_output, expected_output) 
 
     @patch('builtins.print')
     def test_patternprinting_numrows_three_call_print_twenty_times(self, mock_print):
-        pyramid_pattern_printing(5, '*')
+        print_pyramid(5, '*')
         self.assertEqual(mock_print.call_count, 20)
 
     def test_pyramid_pattern_printing_fiverows_asteriks(self):
@@ -39,14 +39,14 @@ class TestBasicMath(unittest.TestCase):
         
         # Assert that the printed output contains the expected parameter
         with StringIO() as buffer, contextlib.redirect_stdout(buffer):
-            pyramid_pattern_printing(5, "*")
+            print_pyramid(5, "*")
             printed_output = buffer.getvalue()
 
         self.assertEqual(printed_output, expected_output) 
 
     @patch('builtins.print')
     def test_patternprinting_numrows_three_call_print_nine_times(self, mock_print):
-        pyramid_pattern_printing(3, '&')
+        print_pyramid(3, '&')
         self.assertEqual(mock_print.call_count, 9)
 
     def test_pyramid_pattern_printing_fiverows_ampersand(self):
@@ -58,7 +58,7 @@ class TestBasicMath(unittest.TestCase):
         
         # Assert that the printed output contains the expected parameter
         with StringIO() as buffer, contextlib.redirect_stdout(buffer):
-            pyramid_pattern_printing(3, "&")
+            print_pyramid(3, "&")
             printed_output = buffer.getvalue()
 
         self.assertEqual(printed_output, expected_output) 
