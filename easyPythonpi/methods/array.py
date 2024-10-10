@@ -34,3 +34,26 @@ def arrayrev(array:'list')->'list':
 
     return reversed_array
 
+
+def fast_arrayrev(array: 'list') -> 'list':
+    """
+    Reverses the elements of the input list.
+
+    Parameters:
+    array (list): The list to be reversed.
+
+    Returns:
+    list: A new list containing the elements of the input list in reverse order.
+
+    Steps:
+    1. The function takes a single argument, `array`, which is expected to be a list.
+    2. It uses Python's slicing feature to reverse the list:
+       - The slice notation `array[::-1]` means:
+         - Start from the end of the list (indicated by the negative step).
+         - Move backwards through the list.
+         - The result is a new list that contains the elements of `array` in reverse order.
+    3. The reversed list is stored in the variable `reversed_array`.
+    4. Finally, the function returns `reversed_array`, which is the reversed version of the input list.
+    """
+    reversed_array = array[::-1]
+    return reversed_array
