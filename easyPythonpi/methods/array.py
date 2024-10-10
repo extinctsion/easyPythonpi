@@ -49,11 +49,12 @@ def fast_arrayrev(array: 'list') -> 'list':
     1. The function takes a single argument, `array`, which is expected to be a list.
     2. It uses Python's slicing feature to reverse the list:
        - The slice notation `array[::-1]` means:
-         - Start from the end of the list (indicated by the negative step).
+         - Start[start::] from the end [:end:] of the list (indicated by the negative step)[start : end : -1].
          - Move backwards through the list.
          - The result is a new list that contains the elements of `array` in reverse order.
     3. The reversed list is stored in the variable `reversed_array`.
     4. Finally, the function returns `reversed_array`, which is the reversed version of the input list.
+    source: https://www.geeksforgeeks.org/python-reversed-vs-1-which-one-is-faster/
     """
     reversed_array = array[::-1]
     return reversed_array
