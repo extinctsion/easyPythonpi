@@ -3,14 +3,57 @@ import subprocess
 import codecs
 import os
 
-#VERSION = '0.0.1'
-VERSION = (
-    subprocess.run(["git", "describe", "--tags"], stdout=subprocess.PIPE)
-    .stdout.decode("utf-8")
-    .strip()
-)
+import requests
 
-if "-" in VERSION:
+#VERSION = '0.0.1'
+# VERSION = (
+#     subprocess.run(["git", "describe", "--tags"], stdout=subprocess.PIPE)
+#     .stdout.decode("utf-8")
+#     .strip()
+# )
+
+def get_pypi_version():
+    try:
+        response = requests.get("https://pypi.org/pypi/easyPythonpi/json")
+        data = response.json()
+        return str(data["info"]["version"])
+    except:
+        return "0.0.0"
+
+def increment_version(version):
+    major, minor, patch = map(int, version.split('.'))
+    patch += 1
+    if patch > 9:
+        patch = 0
+        minor += 1
+    if minor > 9:
+        minor = 0
+        major += 1
+    return f"{major}.{minor}.{patch}"
+
+def get_version():
+    pypi_version = get_pypi_version()
+    new_version = increment_version(pypi_version)
+
+    try:
+        git_describe = subprocess.run(["git", "describe", "--tags"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True)
+        git_version = git_describe.stdout.decode("utf-8").strip()
+
+        if "-" in git_version:
+            v, i, s = git_version.split("-")
+            git_version = f"{new_version}+{i}.git.{s}"
+        else:
+            git_version = new_version
+    except subprocess.CalledProcessError:
+        git_version = new_version
+
+    return git_version
+
+VERSION = get_version()
+
+print("Version: ", VERSION)
+
+if VERSION and "-" in VERSION:
     # when not on tag, git describe outputs: "1.3.3-22-gdf81228"
     # pip has gotten strict with version numbers
     # so change it to: "1.3.3+22.git.gdf81228"
