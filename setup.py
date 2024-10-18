@@ -82,7 +82,7 @@ setup(
     description=DESCRIPTION,
     long_description_content_type="text/markdown",
     packages=find_packages(),
-    install_requires=["numpy >= 1.19.5"],
+    install_requires=["numpy >= 1.19.5", "requests >= 2.25.1"],
     keywords=['python', 'sorting', 'beginners', 'sockets'],
     classifiers=[
         "Development Status :: 1 - Planning",
