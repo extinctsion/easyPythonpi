@@ -23,7 +23,6 @@ jobs:
             pip install --upgrade pip
             pip install -r requirements.txt
             pip install .
-            pip install regex
             pip install black isort
       - name: Run black and isort
         run: |
