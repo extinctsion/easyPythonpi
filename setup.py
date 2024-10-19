@@ -3,7 +3,11 @@ import subprocess
 import codecs
 import os
 
-import requests
+try:
+    import requests
+    requests_installed = True
+except ImportError:
+    requests_installed = False
 
 #VERSION = '0.0.1'
 # VERSION = (
@@ -13,12 +17,16 @@ import requests
 # )
 
 def get_pypi_version():
+    if not requests_installed:
+        print("Warning: 'requests' module is not installed. Using default version.")
+        return "0.0.1"
     try:
         response = requests.get("https://pypi.org/pypi/easyPythonpi/json")
         data = response.json()
         return str(data["info"]["version"])
-    except:
-        return "0.0.0"
+    except Exception as e:
+        print(f"Error fetching version from PyPI: {e}")
+        return "0.0.1"
 
 def increment_version(version):
     major, minor, patch = map(int, version.split('.'))
@@ -82,7 +90,8 @@ setup(
     description=DESCRIPTION,
     long_description_content_type="text/markdown",
     packages=find_packages(),
-    install_requires=["numpy >= 1.19.5", "requests >= 2.25.1"],
+    install_requires=["numpy >= 1.19.5"] + (["requests >= 2.25.1"] if not requests_installed else []),
+    setup_requires=["requests >= 2.25.1"],
     keywords=['python', 'sorting', 'beginners', 'sockets'],
     classifiers=[
         "Development Status :: 1 - Planning",
