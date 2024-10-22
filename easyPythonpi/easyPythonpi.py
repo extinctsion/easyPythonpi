@@ -26,6 +26,19 @@
 """This Python module, easypythonpi.py, is designed to help with a variety of common calculations, including basic arithmetic operations, binary-to-decimal conversion, Fibonacci sequence generation, and shape area calculations. It is built with simplicity and ease of use in mind, making it ideal for both beginners and intermediate users. The module also includes custom exceptions to handle invalid inputs gracefully."""
 
 
+"""
+A python module that helps you to calculate some of the most used calculations.
+
+Usage:
+    Download the file from GitHub and unzip it on your system.
+    To use this module, simply write the following in your code:
+    'from easypythonpi import *' and you are good to go!
+    
+    ~Happy Programming
+"""
+
+# Programmer-defined exceptions go here:
+
 # Define exception for invalid binary strings
 class InvalidBinaryException(Exception):
     """Raised when an invalid binary string is provided."""
