@@ -1,4 +1,3 @@
-
 """  A python module that helps you to calculate some of the  most used calculations.....
     usage--
             Just download the file from git and unzip in ur system.
@@ -11,35 +10,19 @@
 
 # define exception for invalid Binary Strings  
 
-# class InvalidBinaryException(Exception):
-#     pass
+"""class InvalidBinaryException(Exception):
+    pass
 
-# class InvalidNumberFibException(Exception):
-#     def __init__(self, n, message="n is not valid, must be greater than or equal to 1"):
-#          self.n = n
-#          self.message = message
+class InvalidNumberFibException(Exception):
+    def __init__(self, n, message="n is not valid, must be greater than or equal to 1"):
+         self.n = n
+         self.message = message
          
-# class InvalidMeasurementShapeException(Exception):
-#     def __init__(self, message="invalid measurement, must be greater than or equal to 0"):
-#         self.message = message
-
-"""This Python module, easypythonpi.py, is designed to help with a variety of common calculations, including basic arithmetic operations, binary-to-decimal conversion, Fibonacci sequence generation, and shape area calculations. It is built with simplicity and ease of use in mind, making it ideal for both beginners and intermediate users. The module also includes custom exceptions to handle invalid inputs gracefully."""
-
-
-"""
-A python module that helps you to calculate some of the most used calculations.
-
-Usage:
-    Download the file from GitHub and unzip it on your system.
-    To use this module, simply write the following in your code:
-    'from easypythonpi import *' and you are good to go!
-    
-    ~Happy Programming
-"""
-
-# Programmer-defined exceptions go here:
-
-# Define exception for invalid binary strings
+class InvalidMeasurementShapeException(Exception):
+    def __init__(self, message="invalid measurement, must be greater than or equal to 0"):
+        self.message = message"""
+"""--------------------------------------------------------"""
+#program starts from here
 class InvalidBinaryException(Exception):
     """Raised when an invalid binary string is provided."""
     pass
@@ -58,71 +41,6 @@ class InvalidMeasurementShapeException(Exception):
     def __init__(self, message="Invalid measurement, must be greater than or equal to 0"):
         self.message = message
         super().__init__(self.message)
-
-# Functions for basic calculations
-
-def add(num1, num2):
-    """Add two numbers."""
-    return num1 + num2
-
-def subtract(num1, num2):
-    """Subtract two numbers."""
-    return num1 - num2
-
-def multiply(num1, num2):
-    """Multiply two numbers."""
-    return num1 * num2
-
-def divide(num1, num2):
-    """Divide two numbers with error handling for division by zero."""
-    try:
-        return num1 / num2
-    except ZeroDivisionError:
-        return "Error: Division by zero is not allowed."
-
-# Binary string to decimal conversion
-def binary_to_decimal(binary_str):
-    """Convert binary string to decimal."""
-    try:
-        # Check if the binary string is valid
-        if not set(binary_str).issubset({'0', '1'}):
-            raise InvalidBinaryException(f"Invalid binary string: {binary_str}")
-        return int(binary_str, 2)
-    except InvalidBinaryException as e:
-        return str(e)
-
-# Fibonacci sequence generator
-def fibonacci(n):
-    """Generate Fibonacci sequence up to the nth number."""
-    if n < 1:
-        raise InvalidNumberFibException(n)
-    
-    fib_sequence = [0, 1]
-    for i in range(2, n):
-        fib_sequence.append(fib_sequence[-1] + fib_sequence[-2])
-    return fib_sequence[:n]
-
-# Shape area calculators
-
-def calculate_circle_area(radius):
-    """Calculate the area of a circle given the radius."""
-    if radius < 0:
-        raise InvalidMeasurementShapeException("Radius must be non-negative.")
-    return 3.14159 * radius * radius
-
-def calculate_rectangle_area(length, width):
-    """Calculate the area of a rectangle."""
-    if length < 0 or width < 0:
-        raise InvalidMeasurementShapeException("Length and width must be non-negative.")
-    return length * width
-
-def calculate_square_area(side):
-    """Calculate the area of a square."""
-    if side < 0:
-        raise InvalidMeasurementShapeException("Side must be non-negative.")
-    return side * side
-
-# Example usage:
 if __name__ == "__main__":
     # Simple calculator usage
     print("Please select operation -\n"
@@ -147,7 +65,6 @@ if __name__ == "__main__":
             print(f"{number_1} / {number_2} = {result}")
         else:
             print("Invalid input, please select a number between 1 and 4.")
-    
+   
     except ValueError:
         print("Error: Please enter valid numbers.")
-    
