@@ -174,10 +174,8 @@ Before setting up a virtual environment, ensure you have Python installed on you
      source venv/bin/activate
      ```
 
-6. Install `unittest` (if not already installed):
 
     ```sh
-    pip install unittest
     ```
 </details>
 
