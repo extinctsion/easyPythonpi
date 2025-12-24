@@ -2,12 +2,7 @@ from setuptools import setup, find_packages
 import subprocess
 import codecs
 import os
-
-try:
-    import requests
-    requests_installed = True
-except ImportError:
-    requests_installed = False
+import requests
 
 #VERSION = '0.0.1'
 # VERSION = (
@@ -17,9 +12,6 @@ except ImportError:
 # )
 
 def get_pypi_version():
-    if not requests_installed:
-        print("Warning: 'requests' module is not installed. Using default version.")
-        return "0.0.1"
     try:
         response = requests.get("https://pypi.org/pypi/easyPythonpi/json")
         data = response.json()
@@ -90,8 +82,10 @@ setup(
     description=DESCRIPTION,
     long_description_content_type="text/markdown",
     packages=find_packages(),
-    install_requires=["numpy >= 1.19.5"] + (["requests >= 2.25.1"] if not requests_installed else []),
-    setup_requires=["requests >= 2.25.1"],
+    install_requires=[
+    "numpy>=1.19.5",
+    "requests>=2.25.1",
+],
     keywords=['python', 'sorting', 'beginners', 'sockets'],
     classifiers=[
         "Development Status :: 1 - Planning",
