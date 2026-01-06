@@ -1,207 +1,140 @@
-<!-- Replace this with your own banner image or animation -->
-
 # easyPythonpi
-<br>
 
-<u>
-    <h1>Introduction </h1>
-</u>
+A small Python library of commonly used algorithms and utilities intended for learning and quick use in small scripts. The library provides functions across arrays, search & sorting, matrices, linked lists, basic math helpers, string utilities, bitwise ops and more.
 
-**easyPythonpi** is a beginner-friendly Python library that focuses on simple calculations. It's designed to encourage open-source contributions, making it an ideal project for newcomers to programming and open source.
-<br>
+> NOTE: This README reflects the current repository layout as of this change. Code search results used to prepare this file may be incomplete — if something is missing (for example tests or additional modules) let me know and I will update the README.
 
-<u>
-    <h3>Getting Started</h3>
-</u>
+## Table of contents
 
-<br>
-<details>
-<summary>🔍 Fork the Repository</summary>
-<br>
+- About
+- Install
+- Quick usage
+- Package layout
+- Module overview
+- Tests
+- Contributing
+- License & support
 
-1. Fork this repository by clicking the "Fork" button in the top-right corner of this page. Alternatively, you can fork it directly from [here](https://github.com/extinctsion/easyPy/fork).
-</details>
+## About
 
-<details>
-<summary>📥 Clone the Repository</summary>
-<br>
+easyPythonpi collects small, well-commented implementations of common algorithms and utilities useful for practice, education, and small projects. The project is intended to be simple to use and easy to extend.
 
-2. Clone your forked repository to your local computer using the following command. Replace `url_you_just_copied` with the URL of your forked repository.
+## Install
 
-    ```sh
-    git clone url_you_just_copied
-    ```
-</details>
+Install from source:
 
-<details>
-<summary>📂 Open the Repository</summary>
-<br>
+1. Clone the repository:
+   git clone https://github.com/extinctsion/easyPythonpi.git
 
-3. Open the cloned repository in your preferred code editor. Additionally, open a terminal within the repository directory.
+2. Install (recommended to use a virtual environment):
+   cd easyPythonpi
+   pip install .
 
-    ```sh
-    cd easyPythonpi
-    ```
-</details>
+Or install editable for development:
+   pip install -e .
 
-<details>
-<summary>🌿 Create a New Branch</summary>
-<br>
+(If you want a pip wheel or package on PyPI, we can add packaging and CI.)
 
-4. Create a new branch for your changes. Replace `username` with your GitHub username in the following command:
+## Quick usage
 
-    ```sh
-    git checkout -b username
-    ```
-</details>
+You can import specific modules or functions from the package. Example patterns:
 
-<details>
-<summary>🚀 Contribute Code</summary>
-<br>
+- Import a whole module and use its functions:
+  from easyPythonpi.methods import array
+  result = array.some_function(...)
 
-5. Add your new methods or functions to the `easyPythonpi.py` file within the codebase. Ensure that your code adheres to the coding style and conventions used in the existing code for consistency. For example:
+- Import a single function directly:
+  from easyPythonpi.methods.basics import some_helper
+  out = some_helper(...)
 
-    ```python
-    def calculate_average(numbers):
-        """Calculate the average of a list of numbers."""
-        if len(numbers) == 0:
-            return 0
-        return sum(numbers) / len(numbers)
-    ```
-</details>
+- Import everything from a module (not recommended for production):
+  from easyPythonpi.methods.sorting import *
+  sorted_list = quick_sort(...)
 
-<details>
-<summary>📝 Commit Your Changes</summary>
-<br>
+Note: Module and function names are provided inside each module's docstrings — check the module file for exact function names and usage examples.
 
-6. Once you've added your code, commit your changes to GitHub using the following commands. Make sure you execute them in the precise order, one after another, in your terminal.
+## Package layout
 
-    ```sh
-    # Stage your changes
-    git add .
+Top-level files:
+- README.md — this file
+- setup.py — package installation metadata
+- requirements.txt — runtime dependencies (if any)
+- CONTRIBUTING.md — contribution guidelines
 
-    # Commit your changes with a descriptive message
-    git commit -m "Hacktoberfest contribution"
+Package directory:
+- easyPythonpi/
+  - __init__.py — package metadata (version)
+  - easyPythonpi.py — custom exceptions and helpers
+  - __main__.py — package entry point imports
+  - methods/ — core algorithm modules
+    - array.py
+    - basics.py
+    - bitwiseops.py
+    - Graph.py
+    - linkedlist.py
+    - matrix.py
+    - patternprinting.py
+    - search.py
+    - shape.py
+    - sorting.py
+    - statistics.py
+    - stringmainpulation.py
+    - __init__.py
+  - test/ — (tests referenced in __main__.py; not found in the code search result — see Tests section)
 
-    # Push your changes to your GitHub repository
-    git push -u origin your_github_username
-    ```
-</details>
+If any of the module filenames or casing differs in your environment (e.g., Graph.py vs graph.py), be mindful on case-sensitive filesystems.
 
-<details>
-<summary>📢 Open a Pull Request</summary>
-<br>
+## Module overview (summary)
 
-7. Navigate to your forked repository on GitHub. You'll see a yellow box at the top indicating that some changes have been pushed. Click the "Compare & pull request" button.
+- methods/array.py — array helpers and common array algorithm implementations
+- methods/basics.py — small math helpers, basic utilities, and core helpers
+- methods/bitwiseops.py — bitwise operation helpers
+- methods/Graph.py — graph algorithms and helpers
+- methods/linkedlist.py — singly-linked list utilities
+- methods/matrix.py — matrix operations and helpers
+- methods/patternprinting.py — pattern printing / ASCII utilities
+- methods/search.py — search algorithms (linear, binary, etc.)
+- methods/shape.py — geometric measurement helpers
+- methods/sorting.py — sorting algorithms
+- methods/statistics.py — small statistical helpers
+- methods/stringmainpulation.py — string manipulation utilities
 
-8. Submit your pull request by adding a title and description. Congratulations, you have successfully opened a pull request in this repository.
+For exact function names and docstrings, open each module file.
 
-   *Note: To complete the Hacktoberfest challenge, you need to open four valid pull requests. If you've followed the above steps, you've already opened one pull request, and you need three more.*
-</details>
-<br>
+## Tests
 
-![Library File Structure](https://github.com/extinctsion/easyPythonpi/assets/67048929/f772ba66-e2eb-4e42-b1b7-104facf6eda4)
+- __main__.py imports many test modules (e.g., easyPythonpi.test.test_basics and others). When I attempted to list the repository contents for the tests folder the resource wasn't found, so either the tests directory is missing in the remote or located differently. Please confirm whether tests are present and where you want them to live (recommended: easyPythonpi/test/).
 
-<br>
-<u>
-    <h2>Running Test Cases</h2>
-</u>
-<br>
+To run tests (once tests are present and using pytest):
+1. Install dev dependencies:
+   pip install -r requirements.txt
+2. Run:
+   pytest
 
-To ensure the reliability of your contributions and modifications, it's important to run test cases for the **easyPythonpi** library.
+If you want, I can add a basic GitHub Actions workflow to run tests on PRs.
 
-### Prerequisites
+## Contributing
 
-Before running the test cases, ensure you have the following prerequisites installed on your system:
+Thanks for contributing! See CONTRIBUTING.md for the contribution workflow, code style, and commit guidelines.
 
-- [Python](https://www.python.org/downloads/): The Python programming language.
+Quick steps:
+- Fork the repository
+- Create a feature branch
+- Run tests / add tests for new functionality
+- Open a pull request describing your changes
 
-<details>
-<summary>🧪 Run Test Cases</summary>
-<br>
+Labels used in issues: documentation, good first issue, hacktoberfest (see repository issue tracker for current labels).
 
-1. Install the required dependencies using pip:
+## License & support
 
-    ```sh
-    pip install -r requirements.txt
-    ```
-2. Navigate to the project directory in your terminal.
-3. Run the test suite:
+I did not find a LICENSE file in the repository root during the scan. Please add a LICENSE file (MIT, Apache-2.0, GPL-3.0, etc.) to clarify usage terms. If you want, I can add a recommended LICENSE file as a PR.
 
-    ```sh
-    python tests.py
-    ```
+For support or questions, open a new issue in this repository or tag the maintainer.
 
-   The test suite will execute, and you'll see the test results in your terminal. Ensure that all tests pass before making any contributions or modifications.
-</details>
-<br>
+## Next steps I can take for you
 
-<u>
-    <h2>Setting Up a Virtual Environment (Optional method)</h2>
-</u>
-<br>
+- Update README.md in the repository and open a PR with this content.
+- Add badges (build, PyPI, license) and an example notebook.
+- Add GitHub Actions to run tests and publish a package.
 
-Working in a virtual environment is a good practice as it isolates project dependencies from your global Python environment.
-
-<details>
-<summary>🔮 Prerequisites</summary>
-<br>
-
-Before setting up a virtual environment, ensure you have Python installed on your system.
-</details>
-
-<details>
-<summary>📦 Install and Activate a Virtual Environment</summary>
-<br>
-
-4. Create a virtual environment (you can replace `venv` with your preferred environment name):
-
-    ```sh
-    python -m venv venv
-    ```
-
-5. Activate the virtual environment:
-
-   - On Windows:
-
-     ```sh
-     venv\Scripts\activate
-     ```
-
-   - On macOS and Linux:
-
-     ```sh
-     source venv/bin/activate
-     ```
-
-
-    ```sh
-    ```
-</details>
-
-<details>
-<summary>🔬 Run the Test Cases within the Virtual Environment</summary>
-<br>
-
-7. Run the test cases as mentioned above.
-</details>
-
-<details>
-<summary>🔓 Deactivate the Virtual Environment (when done)</summary>
-<br>
-
-8. When you're finished working on the project, deactivate the virtual environment:
-
-    ```sh
-    deactivate
-    ```
-</details>
-<br>
-
-# Hacktoberfest
-
-Repositories with the `hacktoberfest` label are considered for the Hacktoberfest challenge. Your contributions to this project can help you achieve your Hacktoberfest goals.
-
-Thank you for contributing to the open-source community!
-
-</div>
+Tell me which action you'd like me to take next (draft PR, commit directly to a branch, or other).
