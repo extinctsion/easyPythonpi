@@ -1,12 +1,13 @@
-import easyPythonpi as pi
-import regex as re
-
 """
-Simple string manipulation great for data cleaning and processing for eg. tokenization or ML models. All methods are self-explanatory: 
+Simple string manipulation great for data cleaning and processing for e.g. tokenization or ML models. All methods are self-explanatory: 
 remove_punctuation removes all punctuation 
 count_vowels counts the number of vowels in a string and returns a dictionary with count
 is_palindrome checks if the given string is a palindrome or not and returns a boolean value
 """
+
+import easyPythonpi as pi
+import regex as re
+
 
 def remove_punctuation(my_str:'str')->'str':
     punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
